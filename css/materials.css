@@ -1,0 +1,80 @@
+/* Materials Section */
+.materials {
+    padding: 80px 0;
+    background: #ffffff;
+}
+
+.materials h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    color: #010510;
+    margin-bottom: 50px;
+    font-weight: 700;
+}
+
+.materials-showcase {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 25px;
+}
+
+.material-card {
+    background: #f8fafc;
+    border: 2px solid #e2e8f0;
+    border-radius: 20px;
+    padding: 30px;
+    text-align: center;
+    transition: all 0.3s;
+}
+
+.material-card:hover {
+    border-color: #00a9bd;
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0,169,189,0.15);
+}
+
+.material-icon {
+    font-size: 3rem;
+    margin-bottom: 20px;
+}
+
+.material-card h3 {
+    color: #010510;
+    font-size: 1.4rem;
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+.material-card p {
+    color: #666;
+    font-size: 1rem;
+    line-height: 1.5;
+    margin-bottom: 20px;
+}
+
+.material-specs {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.material-specs span {
+    background: #00a9bd;
+    color: white;
+    padding: 5px 12px;
+    border-radius: 15px;
+    font-size: 0.8rem;
+    font-weight: 500;
+}
+
+@media (max-width: 768px) {
+    .materials-showcase {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .materials h2 {
+        font-size: 2rem;
+    }
+}

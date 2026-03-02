@@ -1,0 +1,127 @@
+:root {
+  --card-width: 300px;
+  --card-height: 400px;
+  --carousel-radius: 450px;
+}
+
+.carousel-section {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 100px 0;
+  background: #010510;
+  overflow: hidden;
+  min-height: 100vh;
+}
+
+.carousel-text-content {
+  text-align: center;
+  z-index: 10;
+  margin-bottom: 80px;
+  max-width: 600px;
+}
+
+.carousel-text-content h2 {
+  font-size: 3rem;
+  color: #ffffff;
+  margin-bottom: 20px;
+  font-weight: 700;
+}
+
+.carousel-description {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  margin-bottom: 30px;
+  color: #cccccc;
+}
+
+.carousel-cta-btn {
+  padding: 15px 30px;
+  background: linear-gradient(135deg, #00a9bd, #008a9e);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 1.1rem;
+  transition: all 0.3s;
+  box-shadow: 0 8px 25px rgba(0,169,189,0.3);
+}
+
+.carousel-cta-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 35px rgba(0,169,189,0.5);
+}
+
+.carousel-3d-container {
+  width: 100%;
+  height: var(--card-height);
+  position: relative;
+  perspective: 1000px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.carousel {
+  width: var(--card-width);
+  height: var(--card-height);
+  position: absolute;
+  transform-style: preserve-3d;
+  transform: translateZ(calc(var(--carousel-radius) * -1));
+  animation: rotate3d 20s linear infinite;
+}
+
+.carousel__face {
+  position: absolute;
+  width: var(--card-width);
+  height: var(--card-height);
+  left: 0;
+  top: 0;
+  background-size: cover;
+  background-position: center;
+  border: 2px solid rgba(0,169,189,0.3);
+  backface-visibility: hidden;
+  border-radius: 12px;
+  display: flex;
+  align-items: end;
+  justify-content: center;
+  color: white;
+  font-weight: bold;
+  font-size: 2rem;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+  box-shadow: 0 10px 30px rgba(0,169,189,0.2);
+}
+
+.carousel__face:nth-child(1) { transform: rotateY(0deg) translateZ(var(--carousel-radius)); }
+.carousel__face:nth-child(2) { transform: rotateY(60deg) translateZ(var(--carousel-radius)); }
+.carousel__face:nth-child(3) { transform: rotateY(120deg) translateZ(var(--carousel-radius)); }
+.carousel__face:nth-child(4) { transform: rotateY(180deg) translateZ(var(--carousel-radius)); }
+.carousel__face:nth-child(5) { transform: rotateY(240deg) translateZ(var(--carousel-radius)); }
+.carousel__face:nth-child(6) { transform: rotateY(300deg) translateZ(var(--carousel-radius)); }
+
+@keyframes rotate3d {
+  from { transform: translateZ(calc(var(--carousel-radius) * -1)) rotateY(0deg); }
+  to { transform: translateZ(calc(var(--carousel-radius) * -1)) rotateY(360deg); }
+}
+
+.carousel:hover {
+  animation-play-state: paused;
+}
+
+@media (max-width: 768px) {
+  :root {
+    --card-width: 250px;
+    --card-height: 350px;
+    --carousel-radius: 350px;
+  }
+  
+  .carousel-text-content h2 {
+    font-size: 2.5rem;
+  }
+  
+  .carousel-description {
+    font-size: 1.1rem;
+  }
+}

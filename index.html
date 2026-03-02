@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VEOMA Labs | 3D Printing Services & Workshops</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/hero-modern-visual.css">
+    <link rel="stylesheet" href="css/premium-global.css">
+    <link rel="stylesheet" href="css/dual-carousel.css">
+    <link rel="stylesheet" href="css/carousel-effects.css">
+    <link rel="stylesheet" href="css/stats.css">
+    <link rel="stylesheet" href="css/premium-navbar.css">
+    <link rel="stylesheet" href="css/premium-footer.css?v=2">
+    <link rel="stylesheet" href="css/premium-materials.css">
+</head>
+    
+<body>
+    <!-- Include Navbar -->
+    <div id="navbar-placeholder"></div>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-container">
+                <div class="hero-content new-hero-content">
+                    <h1 class="new-hero-title">
+                        <span class="word-animate">Imagine.</span>
+                        <span class="word-animate">Build.</span>
+                        <span class="word-animate">Innovate.</span>
+                    </h1>
+                    <p class="hero-tagline new-hero-tagline">"Bringing your imagination to reality, one layer at a time."</p>
+                    <p class="hero-description new-hero-desc">Transform your concepts into tangible products with our cutting-edge 3D printing technology and expert design services.</p>
+                    <button class="cta-button new-hero-btn">
+                        <span>Get a Quote</span>
+                        <span class="btn-arrow">→</span>
+                    </button>
+                </div>
+                <div class="hero-visual">
+                    <div class="tech-showcase">
+                        <div class="grid-bg"></div>
+                        <div class="printer-frame">
+                            <img src="images/home-printer.png" alt="3D Printer" class="printer-icon">
+                            <div class="frame-corner tl"></div>
+                            <div class="frame-corner tr"></div>
+                            <div class="frame-corner bl"></div>
+                            <div class="frame-corner br"></div>
+                            <div class="scan-line"></div>
+                        </div>
+                        <div class="tech-lines">
+                            <div class="line line-1"></div>
+                            <div class="line line-2"></div>
+                            <div class="line line-3"></div>
+                        </div>
+                        <div class="floating-dots">
+                            <div class="dot"></div>
+                            <div class="dot"></div>
+                            <div class="dot"></div>
+                            <div class="dot"></div>
+                        </div>
+                        <div class="tech-badge">
+                            <span class="badge-text">PRECISION PRINTING</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <div class="container">
+            <div class="services-header">
+                <h2 class="services-title">Get a Quote</h2>
+                <p class="services-description">Professional 3D printing solutions for your business needs</p>
+            </div>
+            <div class="services-grid ultra-modern-grid">
+                <!-- Printing Service -->
+                <div class="service-card ultra-card">
+                    <div class="ultra-glow"></div>
+                    <div class="ultra-icon-container">
+                        <img src="/images/removed_bg3.png" alt="Printing" class="ultra-icon">
+                    </div>
+                    <h3 class="ultra-title">Printing</h3>
+                    <p class="ultra-desc">High-quality FDM and Resin printing service.</p>
+                    <button class="ultra-btn" onclick="openServiceModal('printing')">
+                        <span>Get Quote</span>
+                        <span class="ultra-arrow">→</span>
+                    </button>
+                </div>
+
+                <!-- Scanning Service -->
+                <div class="service-card ultra-card">
+                    <div class="ultra-glow"></div>
+                    <div class="ultra-icon-container">
+                        <img src="/images/scanner.png" alt="Scanning" class="ultra-icon">
+                    </div>
+                    <h3 class="ultra-title">Scanning</h3>
+                    <p class="ultra-desc">Precision 3D scanning for reverse engineering and replication.</p>
+                    <button class="ultra-btn" onclick="openServiceModal('scanning')">
+                        <span>Get Quote</span>
+                        <span class="ultra-arrow">→</span>
+                    </button>
+                </div>
+
+                <!-- Designing Service -->
+                <div class="service-card ultra-card">
+                    <div class="ultra-glow"></div>
+                    <div class="ultra-icon-container">
+                        <img src="/images/design.png" alt="Designing" class="ultra-icon">
+                    </div>
+                    <h3 class="ultra-title">Designing</h3>
+                    <p class="ultra-desc">Professional 3D modeling and CAD design services.</p>
+                    <button class="ultra-btn" onclick="openServiceModal('designing')">
+                        <span>Get Quote</span>
+                        <span class="ultra-arrow">→</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Services Section -->
+    <section class="about-services" id="about">
+        <div class="container">
+            <h2>Why Choose VEOMA Labs?</h2>
+            <div class="features-grid">
+                <div class="feature">
+                    <h3>🎯 Precision</h3>
+                    <p>Layer heights from 0.1mm to 0.3mm ensuring exceptional detail and accuracy.</p>
+                </div>
+                <div class="feature">
+                    <h3>⚡ Speed</h3>
+                    <p>Fast turnaround times with same-day printing for urgent projects.</p>
+                </div>
+                <div class="feature">
+                    <h3>🏆 Quality</h3>
+                    <p>Premium materials and post-processing for professional-grade results.</p>
+                </div>
+                <div class="feature">
+                    <h3>🎨 Customization</h3>
+                    <p>From prototypes to custom parts, jewelry, miniatures, and architectural models.</p>
+                </div>
+                <div class="feature">
+                    <h3>🔧 Support</h3>
+                    <p>Expert technical assistance and design consultation throughout your project.</p>
+                </div>
+                <div class="feature">
+                    <h3>💰 Affordable</h3>
+                    <p>Competitive pricing with transparent quotes and no hidden fees for all services.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Printing Quote Modal -->
+    <div id="printingModal" class="modal premium-modal">
+        <div class="modal-backdrop"></div>
+        <div class="modal-content premium-modal-content">
+            <div class="modal-header">
+                <div class="modal-icon">
+                    <span><img src="/images/removed_bg3.png" alt=""></span>
+                </div>
+                <h3 class="modal-title">3D Printing Quote</h3>
+                <span class="close premium-close" onclick="closeServiceModal('printing')">&times;</span>
+            </div>
+            <div class="modal-body">
+                <form id="printingForm" class="premium-quote-form" onsubmit="handleServiceSubmit(event, 'printing')">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Full Name</label>
+                            <input type="text" name="name" placeholder="Enter your full name" required>
+                        </div>
+                        <div class="form-group">
+                            <label>WhatsApp Number</label>
+                            <input type="tel" name="mobile" placeholder="+1 (555) 123-4567" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Email Address</label>
+                        <input type="email" name="email" placeholder="your.email@company.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Dimensions (mm)</label>
+                        <div class="dimensions-grid premium-dimensions">
+                            <input type="number" name="dimX" placeholder="Length (X)" required>
+                            <input type="number" name="dimY" placeholder="Width (Y)" required>
+                            <input type="number" name="dimZ" placeholder="Height (Z)" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Upload 3D File</label>
+                        <div class="file-upload-area">
+                            <input type="file" name="file" accept=".stl" required id="fileInput">
+                            <div class="file-upload-text">
+                                <span class="upload-icon">📁</span>
+                                <span>Drop your .STL file here or click to browse</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Project Details</label>
+                        <textarea name="comments" placeholder="Describe your project requirements, material preferences, quantity, and any special instructions..." required></textarea>
+                    </div>
+                    <button type="submit" class="premium-submit-btn">
+                        <span>Request Quote</span>
+                        <div class="btn-icon">→</div>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scanning Quote Modal -->
+    <div id="scanningModal" class="modal premium-modal">
+        <div class="modal-backdrop"></div>
+        <div class="modal-content premium-modal-content">
+            <div class="modal-header">
+                <div class="modal-icon">
+                    <span><img src="/images/scanner.png" alt=""></span>
+                
+                </div>
+                <h3 class="modal-title">3D Scanning Quote</h3>
+                <span class="close premium-close" onclick="closeServiceModal('scanning')">&times;</span>
+            </div>
+            <div class="modal-body">
+                <form id="scanningForm" class="premium-quote-form" onsubmit="handleServiceSubmit(event, 'scanning')">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Full Name</label>
+                            <input type="text" name="name" placeholder="Enter your full name" required>
+                        </div>
+                        <div class="form-group">
+                            <label>WhatsApp Number</label>
+                            <input type="tel" name="mobile" placeholder="+1 (555) 123-4567" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Email Address</label>
+                        <input type="email" name="email" placeholder="your.email@company.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Upload Images (Min 4-5)</label>
+                        <div class="file-upload-area">
+                            <input type="file" name="images" accept="image/*" multiple required>
+                            <div class="file-upload-text">
+                                <span class="upload-icon">📷</span>
+                                <span>Drop your images here or click to browse</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Project Details</label>
+                        <textarea name="comments" placeholder="Describe your scanning requirements, object details, and any special instructions..." required></textarea>
+                    </div>
+                    <button type="submit" class="premium-submit-btn">
+                        <span>Request Quote</span>
+                        <div class="btn-icon">→</div>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Designing Quote Modal -->
+    <div id="designingModal" class="modal premium-modal">
+        <div class="modal-backdrop"></div>
+        <div class="modal-content premium-modal-content">
+            <div class="modal-header">
+                <div class="modal-icon">
+                    <span><img src="/images/design.png" alt=""></span>
+                </div>
+                <h3 class="modal-title">3D Designing Quote</h3>
+                <span class="close premium-close" onclick="closeServiceModal('designing')">&times;</span>
+            </div>
+            <div class="modal-body">
+                <form id="designingForm" class="premium-quote-form" onsubmit="handleServiceSubmit(event, 'designing')">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Full Name</label>
+                            <input type="text" name="name" placeholder="Enter your full name" required>
+                        </div>
+                        <div class="form-group">
+                            <label>WhatsApp Number</label>
+                            <input type="tel" name="mobile" placeholder="+1 (555) 123-4567" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Email Address</label>
+                        <input type="email" name="email" placeholder="your.email@company.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Product Images (Min 4-5)</label>
+                        <div class="file-upload-area">
+                            <input type="file" name="images" accept="image/*" multiple required>
+                            <div class="file-upload-text">
+                                <span class="upload-icon">🖼️</span>
+                                <span>Drop your product images here or click to browse</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Project Details</label>
+                        <textarea name="comments" placeholder="Describe your design requirements, specifications, and any special instructions..." required></textarea>
+                    </div>
+                    <button type="submit" class="premium-submit-btn">
+                        <span>Request Quote</span>
+                        <div class="btn-icon">→</div>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Success Popup -->
+    <div id="successPopup" class="modal">
+        <div class="modal-content text-center">
+            <div id="successMessage" class="success-message"></div>
+            <button class="cta-button" onclick="window.location.href='contact.html'">Contact Us</button>
+            <button class="secondary-btn" onclick="document.getElementById('successPopup').style.display='none'"
+                style="margin-top:10px;">Close</button>
+        </div>
+    </div>
+
+    <!-- 3D Carousel Section -->
+    <section id="carousel-3d-section" class="carousel-section">
+
+
+        <div class="carousel-header">
+            <h2>Innovation Gallery</h2>
+            <p>Discover our high-quality 3D printing materials</p>
+        </div>
+        <div class="carousel-3d-container">
+            <div class="carousel carousel-left">
+                <div class="carousel__face"
+                    style="background-image: url('https://images.unsplash.com/photo-1581833971358-2c8b550f87b3?auto=format&fit=crop&w=800&q=80');">
+                    1</div>
+                <div class="carousel__face"
+                    style="background-image: url('https://images.unsplash.com/photo-1565106430482-8f6e74349ca1?auto=format&fit=crop&w=800&q=80');">
+                    2</div>
+                <div class="carousel__face"
+                    style="background-image: url('https://images.unsplash.com/photo-1612198188060-c7c2a3b66eae?auto=format&fit=crop&w=800&q=80');">
+                    3</div>
+                <div class="carousel__face"
+                    style="background-image: url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=800&q=80');">
+                    4</div>
+                <div class="carousel__face"
+                    style="background-image: url('https://images.unsplash.com/photo-1565106430482-8f6e74349ca1?auto=format&fit=crop&w=800&q=80');">
+                    5</div>
+                <div class="carousel__face"
+                    style="background-image: url('https://images.unsplash.com/photo-1581833971358-2c8b550f87b3?auto=format&fit=crop&w=800&q=80');">
+                    6</div>
+            </div>
+            <div class="carousel carousel-right">
+                <div class="carousel__face"
+                    style="background-image: url('https://images.unsplash.com/photo-1612198188060-c7c2a3b66eae?auto=format&fit=crop&w=800&q=80');">
+                    A</div>
+                <div class="carousel__face"
+                    style="background-image: url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=800&q=80');">
+                    B</div>
+                <div class="carousel__face"
+                    style="background-image: url('https://images.unsplash.com/photo-1565106430482-8f6e74349ca1?auto=format&fit=crop&w=800&q=80');">
+                    C</div>
+                <div class="carousel__face"
+                    style="background-image: url('https://images.unsplash.com/photo-1581833971358-2c8b550f87b3?auto=format&fit=crop&w=800&q=80');">
+                    D</div>
+                <div class="carousel__face"
+                    style="background-image: url('https://images.unsplash.com/photo-1612198188060-c7c2a3b66eae?auto=format&fit=crop&w=800&q=80');">
+                    E</div>
+                <div class="carousel__face"
+                    style="background-image: url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=800&q=80');">
+                    F</div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Stats Section -->
+    <section class="stats">
+        <div class="container">
+            <div class="stats-header">
+                <h2>Our Capabilities</h2>
+                <p>Advanced 3D printing technology delivering precision and quality</p>
+            </div>
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <div class="stat-icon">🎯</div>
+                    <div class="stat-number">0.1mm</div>
+                    <div class="stat-label">Layer Precision</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-icon">⚡</div>
+                    <div class="stat-number">Fast</div>
+                    <div class="stat-label">Turnaround Time</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-icon">🔧</div>
+                    <div class="stat-number">FDM & Resin</div>
+                    <div class="stat-label">Print Technologies</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-icon">🎨</div>
+                    <div class="stat-number">15+</div>
+                    <div class="stat-label">Material Options</div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- Include Footer -->
+    <div id="footer-placeholder"></div>
+
+    <script src="js/main.js"></script>
+</body>
+
+</html>

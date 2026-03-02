@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Professional Workshops | VEOMA Labs</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/premium-global.css">
+    <link rel="stylesheet" href="css/premium-navbar.css">
+    <link rel="stylesheet" href="css/premium-footer.css?v=2">
+    <link rel="stylesheet" href="css/about.css">
+    <link rel="stylesheet" href="css/workshops.css">
+    <!-- <style>
+        .contact-hero {
+            padding: 120px 20px 60px;
+            text-align: center;
+            background: radial-gradient(circle at 50% 0%, rgba(0, 169, 189, 0.15), transparent 70%);
+        }
+
+        .hero-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            max-width: 1200px;
+            margin: 0 auto;
+            gap: 60px;
+        }
+
+        .hero-content {
+            flex: 1;
+            text-align: center ;
+        }
+
+        .hero-visual {
+            flex: 1;
+            position: relative;
+            height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .workshop-animation {
+            position: relative;
+            width: 350px;
+            height: 350px;
+        }
+
+        .printer-base {
+            position: absolute;
+            bottom: 50px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 200px;
+            height: 120px;
+            background: linear-gradient(145deg, #2a2a2a, #1a1a1a);
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .build-plate {
+            position: absolute;
+            top: -10px;
+            left: 20px;
+            width: 160px;
+            height: 20px;
+            background: linear-gradient(145deg, #00a9bd, #008a9e);
+            border-radius: 5px;
+            animation: buildPlate 3s ease-in-out infinite;
+        }
+
+        .print-head {
+            position: absolute;
+            top: -40px;
+            left: 50px;
+            width: 100px;
+            height: 30px;
+            background: linear-gradient(145deg, #333, #222);
+            border-radius: 5px;
+            animation: printHead 4s ease-in-out infinite;
+        }
+
+        .nozzle {
+            position: absolute;
+            bottom: -5px;
+            left: 45px;
+            width: 10px;
+            height: 10px;
+            background: #ff6b35;
+            border-radius: 50%;
+            animation: nozzleGlow 2s ease-in-out infinite;
+        }
+
+        .filament-line {
+            position: absolute;
+            top: -35px;
+            left: 95px;
+            width: 2px;
+            height: 60px;
+            background: linear-gradient(to bottom, #00a9bd, transparent);
+            animation: filamentFlow 2s linear infinite;
+        }
+
+        .floating-particles {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        }
+
+        .particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: #00a9bd;
+            border-radius: 50%;
+            animation: particleFloat 6s ease-in-out infinite;
+        }
+
+        .particle:nth-child(1) {
+            top: 20%;
+            left: 10%;
+            animation-delay: 0s;
+        }
+
+        .particle:nth-child(2) {
+            top: 60%;
+            right: 20%;
+            animation-delay: 1.2s;
+        }
+
+        .particle:nth-child(3) {
+            bottom: 30%;
+            left: 30%;
+            animation-delay: 2.4s;
+        }
+
+        .particle:nth-child(4) {
+            top: 40%;
+            right: 10%;
+            animation-delay: 3.6s;
+        }
+
+        .particle:nth-child(5) {
+            top: 80%;
+            left: 60%;
+            animation-delay: 4.8s;
+        }
+
+        .skill-badges {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        }
+
+        .badge {
+            position: absolute;
+            padding: 8px 16px;
+            background: rgba(0, 169, 189, 0.2);
+            border: 1px solid rgba(0, 169, 189, 0.4);
+            border-radius: 20px;
+            color: #00a9bd;
+            font-size: 0.8rem;
+            font-weight: 600;
+            animation: badgeFloat 5s ease-in-out infinite;
+        }
+
+        .badge-1 {
+            top: 10%;
+            right: 20%;
+            animation-delay: 0s;
+        }
+
+        .badge-2 {
+            bottom: 20%;
+            right: 10%;
+            animation-delay: 1.7s;
+        }
+
+        .badge-3 {
+            top: 50%;
+            left: 5%;
+            animation-delay: 3.4s;
+        }
+
+        @keyframes buildPlate {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-5px); }
+        }
+
+        @keyframes printHead {
+            0%, 100% { transform: translateX(0px); }
+            25% { transform: translateX(20px); }
+            75% { transform: translateX(-20px); }
+        }
+
+        @keyframes nozzleGlow {
+            0%, 100% { 
+                box-shadow: 0 0 5px #ff6b35;
+                transform: scale(1);
+            }
+            50% { 
+                box-shadow: 0 0 15px #ff6b35, 0 0 25px #ff6b35;
+                transform: scale(1.2);
+            }
+        }
+
+        @keyframes filamentFlow {
+            0% { opacity: 0; transform: translateY(0px); }
+            50% { opacity: 1; }
+            100% { opacity: 0; transform: translateY(30px); }
+        }
+
+        @keyframes particleFloat {
+            0%, 100% { 
+                transform: translateY(0px) scale(1);
+                opacity: 0.3;
+            }
+            50% { 
+                transform: translateY(-30px) scale(1.5);
+                opacity: 1;
+            }
+        }
+
+        @keyframes badgeFloat {
+            0%, 100% { 
+                transform: translateY(0px) rotate(0deg);
+                opacity: 0.7;
+            }
+            50% { 
+                transform: translateY(-15px) rotate(5deg);
+                opacity: 1;
+            }
+        }
+
+        .contact-hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 16px;
+            background: linear-gradient(135deg, #ffffff, #a5b4fc);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .contact-hero p {
+            font-size: 1rem;
+            color: #a5b4fc;
+            margin-bottom: 0;
+        }
+
+        @media (max-width: 768px) {
+            .contact-hero h1 {
+                font-size: 2rem;
+            }
+            
+            .hero-container {
+                flex-direction: column;
+                gap: 40px;
+            }
+            
+            .hero-content {
+                text-align: center;
+            }
+            
+            .hero-visual {
+                height: 300px;
+            }
+            
+            .workshop-rings {
+                width: 250px;
+                height: 250px;
+            }
+            
+            .ring-1 {
+                width: 150px;
+                height: 150px;
+                top: 50px;
+                left: 50px;
+            }
+            
+            .ring-2 {
+                width: 200px;
+                height: 200px;
+                top: 25px;
+                left: 25px;
+            }
+            
+            .ring-3 {
+                width: 250px;
+                height: 250px;
+            }
+        }
+    </style> -->
+
+</head>
+
+<body>
+    <div id="navbar-placeholder"></div>
+
+    <!-- Hero Section -->
+    <section class="workshop-hero">
+        <div class="hero-background">
+            <div class="hero-pattern"></div>
+            <div class="hero-glow"></div>
+        </div>
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-badge">Professional Training</div>
+                <h1>Master 3D Printing Technology</h1>
+                <p>Transform your skills with industry-leading workshops designed by experts. From fundamentals to advanced techniques, accelerate your journey in additive manufacturing.</p>
+                <div class="hero-stats">
+                    <div class="stat">
+                        <span class="stat-number">3D</span>
+                        <span class="stat-label">Technology Leaders</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">24/7</span>
+                        <span class="stat-label">Expert Support</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">100%</span>
+                        <span class="stat-label">Hands-On Training</span>
+                    </div>
+                </div>
+                <button class="hero-cta-btn" onclick="scrollToAccelerator()">
+                    <span>Select Your Learning</span>
+                    <span class="btn-arrow">→</span>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Workshops Section -->
+    <section class="workshops-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Choose Your Learning Path</h2>
+                <p>Structured programs designed to take you from beginner to professional</p>
+            </div>
+            
+            <div class="workshops-grid">
+                <!-- Basic Workshop -->
+                <div class="workshop-card basic">
+                    <div class="card-header">
+                        <div class="card-level bronze">🥉 Foundation</div>
+                    </div>
+                    <h3>Foundation Workshop</h3>
+                    <div class="card-price">
+                        <span class="currency">₹</span>
+                        <span class="amount">3,499</span>
+                    </div>
+                    <p class="card-description">Perfect entry point into 3D printing. Learn fundamentals, safety protocols, and create your first successful prints.</p>
+                    
+                    <div class="card-features">
+                        <div class="feature">✓ 8-hour comprehensive training</div>
+                        <div class="feature">✓ Hands-on printer operation</div>
+                        <div class="feature">✓ Basic troubleshooting</div>
+                        <div class="feature">✓ Certificate of completion</div>
+                    </div>
+                    
+                    <div class="card-actions">
+                        <button class="btn-primary" onclick="openJoinModal('Basic')">Enroll Now</button>
+                        <button class="btn-secondary" onclick="openInfoModal('Basic')">View Details</button>
+                    </div>
+                </div>
+
+                <!-- Medium Workshop -->
+                <div class="workshop-card medium featured">
+                    <div class="popular-ribbon">Most Popular</div>
+                    <div class="card-header">
+                        <div class="card-level silver">🥈 Accelerator</div>
+                    </div>
+                    <h3>Accelerator Workshop</h3>
+                    <div class="card-price">
+                        <span class="currency">₹</span>
+                        <span class="amount">7,499</span>
+                    </div>
+                    <p class="card-description">Advanced techniques, calibration mastery, and professional workflow optimization for serious makers.</p>
+                    
+                    <div class="card-features">
+                        <div class="feature">✓ 16-hour intensive training</div>
+                        <div class="feature">✓ Advanced calibration techniques</div>
+                        <div class="feature">✓ Multi-material printing</div>
+                        <div class="feature">✓ Professional certification</div>
+                    </div>
+                    
+                    <div class="card-actions">
+                        <button class="btn-primary" onclick="openJoinModal('Medium')">Enroll Now</button>
+                        <button class="btn-secondary" onclick="openInfoModal('Medium')">View Details</button>
+                    </div>
+                </div>
+
+                <!-- Advanced Workshop -->
+                <div class="workshop-card advanced">
+                    <div class="card-header">
+                        <div class="card-level gold">🥇 Mastery</div>
+                    </div>
+                    <h3>Mastery Workshop</h3>
+                    <div class="card-price">
+                        <span class="currency">₹</span>
+                        <span class="amount">11,999</span>
+                    </div>
+                    <p class="card-description">Master-level training for professionals. Business applications, advanced troubleshooting, and industry insights.</p>
+                    
+                    <div class="card-features">
+                        <div class="feature">✓ 24-hour expert training</div>
+                        <div class="feature">✓ Business applications</div>
+                        <div class="feature">✓ Advanced troubleshooting</div>
+                        <div class="feature">✓ Industry certification</div>
+                    </div>
+                    
+                    <div class="card-actions">
+                        <button class="btn-primary" onclick="openJoinModal('Advanced')">Enroll Now</button>
+                        <button class="btn-secondary" onclick="openInfoModal('Advanced')">View Details</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Join Modal -->
+    <div id="joinModal" class="modal premium-modal">
+        <div class="modal-backdrop"></div>
+        <div class="modal-content premium-modal-content">
+            <div class="modal-header">
+                <div class="modal-icon">
+                    <span>🎓</span>
+                </div>
+                <h3 class="modal-title" id="joinModalTitle">Workshop Registration</h3>
+                <span class="close premium-close" onclick="closeModal('joinModal')">&times;</span>
+            </div>
+            <div class="modal-body">
+                <form id="joinForm" class="premium-quote-form">
+                    <input type="hidden" id="workshopTypeInput" name="workshopType">
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Full Name</label>
+                            <input type="text" name="fullname" placeholder="Enter your full name" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Mobile Number</label>
+                            <input type="tel" name="mobile" placeholder="+91 9876543210" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Email Address</label>
+                        <input type="email" name="email" placeholder="your.email@company.com" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Qualification</label>
+                        <input type="text" name="qualification" placeholder="e.g. B.Tech Student, Professional" required>
+                    </div>
+                    
+                    <button type="submit" class="premium-submit-btn">
+                        <span>Complete Registration</span>
+                        <div class="btn-icon">→</div>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Info Modal -->
+    <div id="infoModal" class="modal premium-modal">
+        <div class="modal-backdrop"></div>
+        <div class="modal-content premium-modal-content">
+            <div class="modal-header">
+                <div class="modal-icon">
+                    <span>ℹ️</span>
+                </div>
+                <h3 class="modal-title" id="infoModalTitle">Workshop Details</h3>
+                <span class="close premium-close" onclick="closeModal('infoModal')">&times;</span>
+            </div>
+            <div class="modal-body">
+                <ul id="infoList" class="info-list">
+                    <!-- Dynamic Content -->
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div id="footer-placeholder"></div>
+
+    <script src="js/main.js"></script>
+    <script src="js/workshops.js"></script>
+</body>
+
+</html>

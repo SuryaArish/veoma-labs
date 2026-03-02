@@ -1,0 +1,129 @@
+/* Testimonial Carousel */
+.testimonial-carousel {
+    max-width: 800px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.carousel-container {
+    position: relative;
+    overflow: hidden;
+    border-radius: 20px;
+}
+
+.testimonial-slide {
+    display: none;
+    padding: 60px 40px;
+    background: #010510;
+    text-align: center;
+    min-height: 300px;
+}
+
+.testimonial-slide.active {
+    display: block;
+}
+
+.quote-icon {
+    font-size: 4rem;
+    color: #00a9bd;
+    margin-bottom: 20px;
+}
+
+.testimonial-content p {
+    color: #e2e8f0;
+    font-size: 1.3rem;
+    line-height: 1.6;
+    margin-bottom: 40px;
+    font-style: italic;
+}
+
+.client-details {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+.client-avatar {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #00a9bd, #008a9e);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 1.3rem;
+}
+
+.client-info strong {
+    color: #ffffff;
+    font-size: 1.1rem;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.client-info span {
+    color: #00a9bd;
+    font-size: 0.9rem;
+}
+
+.carousel-nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 30px;
+}
+
+.nav-btn {
+    background: #00a9bd;
+    color: white;
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.nav-btn:hover {
+    background: #008a9e;
+    transform: scale(1.1);
+}
+
+.carousel-dots {
+    display: flex;
+    gap: 10px;
+}
+
+.dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: #ccc;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.dot.active {
+    background: #00a9bd;
+}
+
+@media (max-width: 768px) {
+    .testimonial-slide {
+        padding: 40px 20px;
+        min-height: 250px;
+    }
+    
+    .testimonial-content p {
+        font-size: 1.1rem;
+    }
+    
+    .client-details {
+        flex-direction: column;
+        gap: 15px;
+    }
+}

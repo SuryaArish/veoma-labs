@@ -1,0 +1,212 @@
+/* Testimonials Section */
+.testimonials {
+    padding: 80px 0 150px;
+    background: #ffffff;
+}
+
+.testimonials h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    color: #010510;
+    margin-bottom: 50px;
+    font-weight: 700;
+}
+
+/* Modern Floating Carousel */
+.testimonial-carousel {
+    max-width: 1000px;
+    margin: 0 auto;
+    position: relative;
+    perspective: 1000px;
+}
+
+.carousel-container {
+    position: relative;
+    height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.testimonial-slide {
+    position: absolute;
+    width: 600px;
+    background: linear-gradient(145deg, #ffffff, #f8fafc);
+    border-radius: 25px;
+    padding: 50px;
+    box-shadow: 0 25px 60px rgba(0,0,0,0.1);
+    transform: translateX(100%) scale(0.8);
+    opacity: 0;
+    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 1px solid rgba(0,169,189,0.1);
+}
+
+.testimonial-slide.active {
+    transform: translateX(0) scale(1);
+    opacity: 1;
+    z-index: 2;
+}
+
+.testimonial-slide.prev {
+    transform: translateX(-100%) scale(0.8);
+    opacity: 0.3;
+    z-index: 1;
+}
+
+.testimonial-slide.next {
+    transform: translateX(100%) scale(0.8);
+    opacity: 0.3;
+    z-index: 1;
+}
+
+.quote-icon {
+    position: absolute;
+    top: -20px;
+    left: 40px;
+    font-size: 5rem;
+    color: #00a9bd;
+    opacity: 0.2;
+}
+
+.testimonial-content {
+    position: relative;
+    z-index: 2;
+}
+
+.testimonial-content p {
+    color: #2d3748;
+    font-size: 1.4rem;
+    line-height: 1.7;
+    margin-bottom: 40px;
+    font-weight: 400;
+    text-align: center;
+}
+
+.client-details {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding-top: 30px;
+    border-top: 2px solid #e2e8f0;
+}
+
+.client-avatar {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #00a9bd, #008a9e);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 1.5rem;
+    box-shadow: 0 8px 25px rgba(0,169,189,0.3);
+}
+
+.client-info {
+    text-align: left;
+}
+
+.client-info strong {
+    color: #1a202c;
+    font-size: 1.2rem;
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 600;
+}
+
+.client-info span {
+    color: #00a9bd;
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.carousel-nav {
+    position: relative;
+    margin-top: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+}
+
+.nav-btn {
+    background: linear-gradient(135deg, #00a9bd, #008a9e);
+    color: white;
+    border: none;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    font-size: 1.8rem;
+    cursor: pointer;
+    transition: all 0.3s;
+    box-shadow: 0 8px 25px rgba(0,169,189,0.3);
+}
+
+.nav-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 35px rgba(0,169,189,0.5);
+}
+
+.carousel-dots {
+    display: flex;
+    gap: 15px;
+}
+
+.dot {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background: #cbd5e0;
+    cursor: pointer;
+    transition: all 0.3s;
+    border: 2px solid transparent;
+}
+
+.dot.active {
+    background: #00a9bd;
+    transform: scale(1.2);
+    border-color: #ffffff;
+    box-shadow: 0 0 0 3px rgba(0,169,189,0.3);
+}
+
+.testimonial-cta {
+    text-align: center;
+    margin-top: 40px;
+}
+
+.testimonial-btn {
+    background: linear-gradient(135deg, #00a9bd, #008a9e);
+    color: white;
+    padding: 18px 40px;
+    border: none;
+    border-radius: 12px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+    box-shadow: 0 8px 25px rgba(0,169,189,0.3);
+}
+
+.testimonial-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 35px rgba(0,169,189,0.5);
+}
+
+@media (max-width: 768px) {
+    .testimonial-slide {
+        width: 90%;
+        padding: 30px;
+    }
+    
+    .testimonial-content p {
+        font-size: 1.2rem;
+    }
+    
+    .client-details {
+        flex-direction: column;
+        text-align: center;
+        gap: 15px;
+    }
+}
