@@ -31,13 +31,13 @@ function loadFooter() {
 // Initialize navbar functionality
 function initializeNavbar() {
     const navToggle = document.querySelector('.nav-mobile-toggle');
-    const navContainer = document.querySelector('.nav-container'); // Mobile state matches this
+    const navContainer = document.querySelector('.nav-container');
 
     if (navToggle && navContainer) {
-        navToggle.addEventListener('click', function () {
+        navToggle.addEventListener('click', function (e) {
+            e.stopPropagation();
             navContainer.classList.toggle('active');
 
-            // Prevent body scroll
             if (navContainer.classList.contains('active')) {
                 document.body.style.overflow = 'hidden';
             } else {
@@ -46,11 +46,24 @@ function initializeNavbar() {
         });
 
         // Close mobile menu when clicking on a link
-        document.querySelectorAll('.nav-link').forEach(link => {
-            link.addEventListener('click', () => {
+        document.querySelectorAll('.nav-link, .dropdown-link').forEach(link => {
+            link.addEventListener('click', (e) => {
+                // Don't close if it's the Workshop dropdown trigger
+                if (!link.parentElement.classList.contains('nav-dropdown') || link.classList.contains('dropdown-link')) {
+                    navContainer.classList.remove('active');
+                    document.body.style.overflow = 'auto';
+                }
+            });
+        });
+
+        // Close menu when clicking outside
+        document.addEventListener('click', function(e) {
+            if (navContainer.classList.contains('active') && 
+                !navContainer.contains(e.target) && 
+                !navToggle.contains(e.target)) {
                 navContainer.classList.remove('active');
                 document.body.style.overflow = 'auto';
-            });
+            }
         });
     }
 }

@@ -66,6 +66,52 @@
     gap: 40px;
 }
 
+/* Dropdown Menu */
+.nav-dropdown {
+    position: relative;
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: rgba(10, 10, 12, 0.95);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(0,169,189,0.2);
+    border-radius: 12px;
+    padding: 12px 0;
+    min-width: 220px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: all 0.3s ease;
+    list-style: none;
+    margin: 8px 0 0 0;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+}
+
+.nav-dropdown:hover .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.dropdown-link {
+    display: block;
+    padding: 12px 24px;
+    color: rgba(255, 255, 255, 0.7);
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.dropdown-link:hover {
+    color: #00a9bd;
+    background: rgba(0,169,189,0.1);
+    padding-left: 28px;
+}
+
 .nav-link {
     text-decoration: none;
     color: rgba(255, 255, 255, 0.6);
@@ -114,12 +160,13 @@
     cursor: pointer;
     z-index: 1002;
     padding: 10px;
+    position: relative;
 }
 
 .nav-mobile-toggle span {
     display: block;
-    width: 24px;
-    height: 1px;
+    width: 28px;
+    height: 2px;
     background: #ffffff;
     transition: all 0.3s ease;
 }
@@ -136,49 +183,102 @@
         left: 0;
         width: 100%;
         height: 100vh;
-        background: #050505;
+        background: #020811;
+        backdrop-filter: blur(10px);
         z-index: 1001;
-        display: flex;
+        display: flex !important;
         align-items: center;
         justify-content: center;
         opacity: 0;
         visibility: hidden;
+        pointer-events: none;
         transition: all 0.4s ease;
     }
 
     .nav-container.active .nav-wrapper {
         opacity: 1;
         visibility: visible;
+        pointer-events: auto;
     }
 
     .nav-menu {
         flex-direction: column;
         align-items: center;
-        gap: 32px;
+        gap: 20px;
+        display: flex !important;
+    }
+
+    .nav-menu li {
+        display: block;
+        width: 100%;
+        max-width: 300px;
     }
 
     .nav-link {
-        font-size: 1.5rem;
-        font-weight: 300;
-        color: rgba(255, 255, 255, 0.5);
+        font-size: 1.5rem !important;
+        font-weight: 600 !important;
+        color: #ffffff !important;
+        display: block;
+        padding: 18px 30px !important;
+        background: linear-gradient(135deg, rgba(0,169,189,0.1), rgba(0,169,189,0.05));
+        border: 1px solid rgba(0,169,189,0.3);
+        border-radius: 12px;
+        text-align: center;
+        transition: all 0.3s;
+        pointer-events: auto;
+        cursor: pointer;
     }
 
     .nav-link.active,
     .nav-link:hover {
-        color: #ffffff;
+        color: #000000 !important;
+        background: linear-gradient(135deg, #00a9bd, #008a9e);
+        border-color: #00a9bd;
+        transform: translateY(-3px);
+        box-shadow: 0 10px 30px rgba(0,169,189,0.5);
     }
 
     .nav-link::after {
         display: none;
-        /* No underlines on mobile */
     }
 
-    /* Toggle Animation */
+    .dropdown-menu {
+        position: static;
+        opacity: 1;
+        visibility: visible;
+        transform: none;
+        background: transparent;
+        border: none;
+        box-shadow: none;
+        padding: 8px 0;
+        min-width: auto;
+        display: block !important;
+    }
+
+    .dropdown-link {
+        font-size: 1.1rem !important;
+        text-align: center;
+        padding: 14px 20px !important;
+        color: #ffffff !important;
+        display: block;
+        background: rgba(0,169,189,0.05);
+        border-radius: 8px;
+        margin: 8px 0;
+        transition: all 0.3s;
+    }
+    
+    .dropdown-link:hover {
+        color: #000000 !important;
+        background: #00a9bd;
+        padding-left: 20px !important;
+        transform: translateX(5px);
+    }
+
     .nav-container.active .nav-mobile-toggle span:nth-child(1) {
-        transform: rotate(45deg) translate(5px, 5px);
+        transform: rotate(45deg) translate(6px, 6px);
     }
 
     .nav-container.active .nav-mobile-toggle span:nth-child(2) {
-        transform: rotate(-45deg) translate(5px, -5px);
+        transform: rotate(-45deg) translate(6px, -6px);
     }
 }

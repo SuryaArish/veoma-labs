@@ -21,6 +21,13 @@ document.addEventListener('DOMContentLoaded', () => {
     loadComponent('components/navbar.html', 'navbar-placeholder');
     loadComponent('components/footer.html', 'footer-placeholder');
     
+    // Initialize navbar after loading
+    setTimeout(() => {
+        if (typeof initializeNavbar === 'function') {
+            initializeNavbar();
+        }
+    }, 100);
+    
     // Workshop Details Data
     // Workshop Details Data
     const workshopDetails = {

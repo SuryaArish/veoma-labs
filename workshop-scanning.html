@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D Scanning Workshop | VEOMA Labs</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/premium-global.css">
+    <link rel="stylesheet" href="css/premium-navbar.css">
+    <link rel="stylesheet" href="css/premium-footer.css?v=2">
+    <link rel="stylesheet" href="css/about.css">
+    <link rel="stylesheet" href="css/workshops.css">
+</head>
+
+<body>
+    <div id="navbar-placeholder"></div>
+
+    <!-- Hero Section -->
+    <section class="workshop-hero">
+        <div class="hero-background">
+            <div class="hero-pattern"></div>
+            <div class="hero-glow"></div>
+        </div>
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-badge">Professional Training</div>
+                <h1>3D Scanning Workshop</h1>
+                <p>Master the art of 3D scanning technology. Learn professional techniques for capturing real-world objects and converting them into precise digital models.</p>
+                <div class="hero-stats">
+                    <div class="stat">
+                        <span class="stat-number">3D</span>
+                        <span class="stat-label">Scanning Experts</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">24/7</span>
+                        <span class="stat-label">Expert Support</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">100%</span>
+                        <span class="stat-label">Hands-On Training</span>
+                    </div>
+                </div>
+                <button class="hero-cta-btn" onclick="scrollToAccelerator()">
+                    <span>Select Your Learning</span>
+                    <span class="btn-arrow">→</span>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Workshops Section -->
+    <section class="workshops-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Choose Your Learning Path</h2>
+                <p>Structured programs designed to take you from beginner to professional</p>
+            </div>
+            
+            <div class="workshops-grid">
+                <!-- Basic Workshop -->
+                <div class="workshop-card basic">
+                    <div class="card-header">
+                        <div class="card-level bronze">🥉 Foundation</div>
+                    </div>
+                    <h3>Foundation Workshop</h3>
+                    <div class="card-price">
+                        <span class="currency">₹</span>
+                        <span class="amount">4,499</span>
+                    </div>
+                    <p class="card-description">Perfect entry point into 3D scanning. Learn fundamentals, equipment handling, and create your first successful scans.</p>
+                    
+                    <div class="card-features">
+                        <div class="feature">✓ 8-hour comprehensive training</div>
+                        <div class="feature">✓ Hands-on scanner operation</div>
+                        <div class="feature">✓ Basic mesh processing</div>
+                        <div class="feature">✓ Certificate of completion</div>
+                    </div>
+                    
+                    <div class="card-actions">
+                        <button class="btn-primary" onclick="openJoinModal('Basic')">Enroll Now</button>
+                        <button class="btn-secondary" onclick="openInfoModal('Basic')">View Details</button>
+                    </div>
+                </div>
+
+                <!-- Medium Workshop -->
+                <div class="workshop-card medium featured">
+                    <div class="popular-ribbon">Most Popular</div>
+                    <div class="card-header">
+                        <div class="card-level silver">🥈 Accelerator</div>
+                    </div>
+                    <h3>Accelerator Workshop</h3>
+                    <div class="card-price">
+                        <span class="currency">₹</span>
+                        <span class="amount">8,499</span>
+                    </div>
+                    <p class="card-description">Advanced scanning techniques, mesh optimization, and professional workflow for reverse engineering projects.</p>
+                    
+                    <div class="card-features">
+                        <div class="feature">✓ 16-hour intensive training</div>
+                        <div class="feature">✓ Advanced scanning techniques</div>
+                        <div class="feature">✓ Mesh editing & optimization</div>
+                        <div class="feature">✓ Professional certification</div>
+                    </div>
+                    
+                    <div class="card-actions">
+                        <button class="btn-primary" onclick="openJoinModal('Medium')">Enroll Now</button>
+                        <button class="btn-secondary" onclick="openInfoModal('Medium')">View Details</button>
+                    </div>
+                </div>
+
+                <!-- Advanced Workshop -->
+                <div class="workshop-card advanced">
+                    <div class="card-header">
+                        <div class="card-level gold">🥇 Mastery</div>
+                    </div>
+                    <h3>Mastery Workshop</h3>
+                    <div class="card-price">
+                        <span class="currency">₹</span>
+                        <span class="amount">12,999</span>
+                    </div>
+                    <p class="card-description">Master-level training for professionals. Industrial applications, quality control, and advanced reverse engineering.</p>
+                    
+                    <div class="card-features">
+                        <div class="feature">✓ 24-hour expert training</div>
+                        <div class="feature">✓ Industrial applications</div>
+                        <div class="feature">✓ Quality control methods</div>
+                        <div class="feature">✓ Industry certification</div>
+                    </div>
+                    
+                    <div class="card-actions">
+                        <button class="btn-primary" onclick="openJoinModal('Advanced')">Enroll Now</button>
+                        <button class="btn-secondary" onclick="openInfoModal('Advanced')">View Details</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Join Modal -->
+    <div id="joinModal" class="modal premium-modal">
+        <div class="modal-backdrop"></div>
+        <div class="modal-content premium-modal-content">
+            <div class="modal-header">
+                <div class="modal-icon">
+                    <span>🎓</span>
+                </div>
+                <h3 class="modal-title" id="joinModalTitle">Workshop Registration</h3>
+                <span class="close premium-close" onclick="closeModal('joinModal')">&times;</span>
+            </div>
+            <div class="modal-body">
+                <form id="joinForm" class="premium-quote-form">
+                    <input type="hidden" id="workshopTypeInput" name="workshopType">
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Full Name</label>
+                            <input type="text" name="fullname" placeholder="Enter your full name" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Mobile Number</label>
+                            <input type="tel" name="mobile" placeholder="+91 9876543210" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Email Address</label>
+                        <input type="email" name="email" placeholder="your.email@company.com" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Qualification</label>
+                        <input type="text" name="qualification" placeholder="e.g. B.Tech Student, Professional" required>
+                    </div>
+                    
+                    <button type="submit" class="premium-submit-btn">
+                        <span>Complete Registration</span>
+                        <div class="btn-icon">→</div>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Info Modal -->
+    <div id="infoModal" class="modal premium-modal">
+        <div class="modal-backdrop"></div>
+        <div class="modal-content premium-modal-content">
+            <div class="modal-header">
+                <div class="modal-icon">
+                    <span>ℹ️</span>
+                </div>
+                <h3 class="modal-title" id="infoModalTitle">Workshop Details</h3>
+                <span class="close premium-close" onclick="closeModal('infoModal')">&times;</span>
+            </div>
+            <div class="modal-body">
+                <ul id="infoList" class="info-list">
+                    <!-- Dynamic Content -->
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div id="footer-placeholder"></div>
+
+    <script src="js/main.js"></script>
+    <script src="js/workshops.js"></script>
+</body>
+
+</html>
