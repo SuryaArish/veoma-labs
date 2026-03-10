@@ -124,6 +124,23 @@ window.onclick = function (event) {
 function handleServiceSubmit(e, type) {
     e.preventDefault();
 
+    // Validate file type for printing form
+    if (type === 'printing') {
+        const fileInput = document.querySelector('#printingForm input[name="file"]');
+        const fileError = document.getElementById('fileError');
+        
+        if (fileInput && fileInput.files.length > 0) {
+            const file = fileInput.files[0];
+            const fileName = file.name.toLowerCase();
+            
+            if (!fileName.endsWith('.stl') && !fileName.endsWith('.obj')) {
+                fileError.style.display = 'block';
+                return;
+            }
+            fileError.style.display = 'none';
+        }
+    }
+
     // In a real app, you would send data to backend here
     // For now, we simulate success
 
@@ -215,3 +232,39 @@ function currentSlide(index) {
 
 // Auto-advance carousel
 setInterval(nextSlide, 5000);
+
+// Career Modal Functions
+function openCareerModal() {
+    document.getElementById('careerModal').style.display = 'block';
+    document.body.style.overflow = 'hidden';
+}
+
+function closeCareerModal() {
+    document.getElementById('careerModal').style.display = 'none';
+    document.getElementById('contactOptions').style.display = 'none';
+    document.body.style.overflow = 'auto';
+}
+
+function selectCareerType(type) {
+    const contactOptions = document.getElementById('contactOptions');
+    const whatsappLink = document.getElementById('whatsappLink');
+    const gmailLink = document.getElementById('gmailLink');
+    
+    // Update contact links based on career type
+    const subject = type === 'intern' ? 'Internship Application' : 'Employment Application';
+    const whatsappText = type === 'intern' ? 'Hi, I am interested in an internship opportunity at VEOMA Labs' : 'Hi, I am interested in employment opportunities at VEOMA Labs';
+    
+    // Replace with actual contact details
+    whatsappLink.href = `https://wa.me/919876543210?text=${encodeURIComponent(whatsappText)}`;
+    gmailLink.href = `mailto:info@veomalabs.com?subject=${encodeURIComponent(subject)}`;
+    
+    contactOptions.style.display = 'flex';
+}
+
+// Close career modal when clicking outside
+window.addEventListener('click', function(event) {
+    const modal = document.getElementById('careerModal');
+    if (event.target === modal) {
+        closeCareerModal();
+    }
+});

@@ -109,31 +109,6 @@
                         <button class="btn-secondary" onclick="openInfoModal('Medium')">View Details</button>
                     </div>
                 </div>
-
-                <!-- Advanced Workshop -->
-                <div class="workshop-card advanced">
-                    <div class="card-header">
-                        <div class="card-level gold">🥇 Mastery</div>
-                    </div>
-                    <h3>Mastery Workshop</h3>
-                    <div class="card-price">
-                        <span class="currency">₹</span>
-                        <span class="amount">12,999</span>
-                    </div>
-                    <p class="card-description">Master-level training for professionals. Industrial applications, quality control, and advanced reverse engineering.</p>
-                    
-                    <div class="card-features">
-                        <div class="feature">✓ 24-hour expert training</div>
-                        <div class="feature">✓ Industrial applications</div>
-                        <div class="feature">✓ Quality control methods</div>
-                        <div class="feature">✓ Industry certification</div>
-                    </div>
-                    
-                    <div class="card-actions">
-                        <button class="btn-primary" onclick="openJoinModal('Advanced')">Enroll Now</button>
-                        <button class="btn-secondary" onclick="openInfoModal('Advanced')">View Details</button>
-                    </div>
-                </div>
             </div>
         </div>
     </section>
@@ -160,7 +135,7 @@
                         </div>
                         <div class="form-group">
                             <label>Mobile Number</label>
-                            <input type="tel" name="mobile" placeholder="+91 9876543210" required>
+                            <input type="tel" name="mobile" placeholder="+91 9876543210" pattern="[6-9][0-9]{9}" title="Enter valid 10-digit Indian mobile number starting with 6-9" required>
                         </div>
                     </div>
                     
