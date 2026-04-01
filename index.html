@@ -29,26 +29,34 @@
         }
         
         .social-icon {
-            width: 50px;
-            height: 50px;
+            width: 75px;
+            height: 75px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            background: rgba(0, 169, 189, 0.2);
-            border: 2px solid rgba(0, 169, 189, 0.5);
-            color: #00a9bd;
-            font-size: 24px;
+            background: rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(0, 169, 189, 0.3);
             text-decoration: none;
             transition: all 0.3s ease;
-            box-shadow: 0 0 20px rgba(0, 169, 189, 0.3);
+            box-shadow: 0 0 15px rgba(0, 169, 189, 0.2);
             animation: glow 2s ease-in-out infinite;
+            overflow: hidden;
+            padding: 12px;
+        }
+        
+        .social-icon img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            border-radius: 50%;
         }
         
         .social-icon:hover {
-            background: rgba(0, 169, 189, 0.4);
-            transform: scale(1.1);
-            box-shadow: 0 0 30px rgba(0, 169, 189, 0.6);
+            background: rgba(0, 169, 189, 0.2);
+            transform: scale(1.15);
+            border-color: rgba(0, 169, 189, 0.7);
+            box-shadow: 0 0 25px rgba(0, 169, 189, 0.5);
         }
         
         /* Floating Career Icon - Right Side */
@@ -61,24 +69,31 @@
         }
         
         .career-icon {
-            width: 60px;
-            height: 60px;
+            width: 75px;
+            height: 75px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            background: linear-gradient(135deg, #00a9bd, #008a9e);
-            color: white;
-            font-size: 28px;
+            background: rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(0, 169, 189, 0.3);
             cursor: pointer;
             transition: all 0.3s ease;
-            box-shadow: 0 0 25px rgba(0, 169, 189, 0.5);
+            box-shadow: 0 0 15px rgba(0, 169, 189, 0.2);
             animation: glow 2s ease-in-out infinite;
+            overflow: visible;
+            padding: 0;
+        }
+
+        .career-icon img {
+            width: 85px;
+            height: 85px;
+            object-fit: contain;
         }
         
         .career-icon:hover {
             transform: scale(1.15);
-            box-shadow: 0 0 40px rgba(0, 169, 189, 0.8);
+            box-shadow: 0 0 25px rgba(0, 169, 189, 0.5);
         }
         
         @keyframes glow {
@@ -103,14 +118,14 @@
         }
         
         .career-modal-content {
-            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            background: linear-gradient(145deg, #000308 0%, #0a0f1c 100%);
             margin: 10% auto;
             padding: 40px;
-            border: 2px solid rgba(0, 169, 189, 0.5);
+            border: 1px solid rgba(0, 169, 189, 0.3);
             border-radius: 20px;
             width: 90%;
             max-width: 500px;
-            box-shadow: 0 0 50px rgba(0, 169, 189, 0.4);
+            box-shadow: 0 0 50px rgba(0, 169, 189, 0.2);
             position: relative;
         }
         
@@ -207,24 +222,363 @@
                 display: none;
             }
         }
+        
+        /* Premium Select Dropdown */
+        .premium-select {
+            padding: 18px 20px;
+            border: 1px solid rgba(0,169,189,0.3);
+            border-radius: 15px;
+            font-size: 1rem;
+            background: linear-gradient(145deg, rgba(26,31,46,0.6), rgba(1,5,16,0.8));
+            backdrop-filter: blur(10px);
+            color: #ffffff;
+            width: 100%;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 10px rgba(0,169,189,0.1);
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%2300a9bd' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 20px center;
+            padding-right: 50px;
+        }
+        
+        .premium-select:hover {
+            border-color: rgba(0,169,189,0.6);
+            background: linear-gradient(145deg, rgba(26,31,46,0.7), rgba(1,5,16,0.9));
+            box-shadow: 0 4px 20px rgba(0,169,189,0.2);
+        }
+        
+        .premium-select:focus {
+            outline: none;
+            border-color: #00a9bd;
+            box-shadow: 0 0 0 3px rgba(0,169,189,0.2), 0 4px 20px rgba(0,169,189,0.3);
+            background: linear-gradient(145deg, rgba(26,31,46,0.8), rgba(1,5,16,1));
+        }
+        
+        .premium-select option {
+            background: #0a0f1c;
+            color: #ffffff;
+            padding: 12px;
+        }
+        
+        .premium-select option:hover {
+            background: rgba(0,169,189,0.2);
+        }
+
+        /* Feedback Carousel */
+        .feedback-section {
+            background: linear-gradient(135deg, #0a0f1c 0%, #010510 50%, #0d1117 100%);
+            padding: 100px 0;
+            position: relative;
+            overflow: hidden;
+            border-top: 1px solid rgba(0,169,189,0.15);
+        }
+
+        .feedback-section::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background:
+                radial-gradient(circle at 15% 50%, rgba(0,169,189,0.07) 0%, transparent 40%),
+                radial-gradient(circle at 85% 50%, rgba(0,169,189,0.05) 0%, transparent 40%);
+        }
+
+        .feedback-header {
+            text-align: center;
+            margin-bottom: 55px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .feedback-badge {
+            display: inline-block;
+            background: rgba(0,169,189,0.12);
+            color: #00a9bd;
+            padding: 7px 22px;
+            border-radius: 25px;
+            font-size: 0.78rem;
+            font-weight: 700;
+            letter-spacing: 2.5px;
+            border: 1px solid rgba(0,169,189,0.3);
+            margin-bottom: 18px;
+        }
+
+        .feedback-header h2 {
+            font-size: 3rem;
+            font-weight: 800;
+            color: #ffffff;
+            margin-bottom: 15px;
+            letter-spacing: -0.5px;
+        }
+
+        .feedback-underline {
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, #00a9bd, transparent);
+            margin: 0 auto 25px;
+            border-radius: 2px;
+        }
+
+        .add-feedback-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: linear-gradient(135deg, #00a9bd, #008a9e);
+            color: #ffffff;
+            border: none;
+            padding: 12px 28px;
+            border-radius: 50px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 25px rgba(0,169,189,0.3);
+            letter-spacing: 0.5px;
+        }
+
+        .add-feedback-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(0,169,189,0.5);
+        }
+
+        /* Feedback Modal */
+        .feedback-modal {
+            display: none;
+            position: fixed;
+            z-index: 3000;
+            inset: 0;
+            background: rgba(0,0,0,0.75);
+            backdrop-filter: blur(8px);
+            align-items: center;
+            justify-content: center;
+        }
+
+        .feedback-modal.open {
+            display: flex;
+        }
+
+        .feedback-modal-box {
+            background: linear-gradient(145deg, #0f1520, #080d18);
+            border: 1px solid rgba(0,169,189,0.35);
+            border-radius: 24px;
+            padding: 45px 40px;
+            width: 90%;
+            max-width: 480px;
+            position: relative;
+            box-shadow: 0 25px 60px rgba(0,169,189,0.2);
+            animation: modalSlideIn 0.35s cubic-bezier(0.23,1,0.32,1);
+        }
+
+        .feedback-modal-box::-webkit-scrollbar {
+            display: none;
+        }
+
+        .feedback-modal-box h3 {
+            color: #ffffff;
+            font-size: 1.6rem;
+            font-weight: 800;
+            margin-bottom: 8px;
+            text-align: center;
+        }
+
+        .feedback-modal-box p {
+            color: #888;
+            font-size: 0.88rem;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .feedback-modal-close {
+            position: absolute;
+            top: 18px;
+            right: 22px;
+            background: none;
+            border: none;
+            color: #666;
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: color 0.2s;
+        }
+
+        .feedback-modal-close:hover { color: #00a9bd; }
+
+        .fb-form-group {
+            margin-bottom: 18px;
+        }
+
+        .fb-form-group label {
+            display: block;
+            color: #00a9bd;
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+        }
+
+        .fb-form-group input,
+        .fb-form-group textarea {
+            width: 100%;
+            padding: 13px 16px;
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(0,169,189,0.2);
+            border-radius: 12px;
+            color: #ffffff;
+            font-size: 0.95rem;
+            font-family: 'Inter', sans-serif;
+            transition: all 0.3s;
+            box-sizing: border-box;
+        }
+
+        .fb-form-group input::placeholder,
+        .fb-form-group textarea::placeholder { color: rgba(255,255,255,0.3); }
+
+        .fb-form-group input:focus,
+        .fb-form-group textarea:focus {
+            outline: none;
+            border-color: #00a9bd;
+            background: rgba(0,169,189,0.07);
+        }
+
+        .fb-form-group textarea { resize: none; height: 90px; }
+
+        .fb-rating-group {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 25px;
+        }
+
+        .fb-star {
+            font-size: 1.8rem;
+            cursor: pointer;
+            color: rgba(255,255,255,0.2);
+            transition: color 0.2s, transform 0.2s;
+        }
+
+        .fb-star.active, .fb-star:hover { color: #f59e0b; transform: scale(1.2); }
+
+        .fb-submit-btn {
+            width: 100%;
+            padding: 14px;
+            background: linear-gradient(135deg, #00a9bd, #008a9e);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-size: 1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s;
+            letter-spacing: 0.5px;
+        }
+
+        .fb-submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(0,169,189,0.4);
+        }
+
+        .feedback-track-wrapper {
+            overflow: hidden;
+            mask-image: linear-gradient(90deg, transparent 0%, #000 6%, #000 94%, transparent 100%);
+            -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 6%, #000 94%, transparent 100%);
+        }
+
+        .feedback-track-wrapper:hover .feedback-track {
+            animation-play-state: paused;
+        }
+
+        .feedback-track {
+            display: flex;
+            gap: 25px;
+            width: max-content;
+            animation: fbScrollLeft 40s linear infinite;
+            padding: 10px 0 20px;
+        }
+
+        @keyframes fbScrollLeft {
+            0%   { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        .feedback-card {
+            width: 360px;
+            min-width: 360px;
+            background: linear-gradient(145deg, rgba(20,26,40,0.9), rgba(5,10,20,0.95));
+            border: 1px solid rgba(0,169,189,0.15);
+            border-radius: 20px;
+            padding: 30px;
+            flex-shrink: 0;
+            transition: all 0.4s ease;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+        }
+
+        .feedback-card:hover {
+            border-color: rgba(0,169,189,0.45);
+            box-shadow: 0 15px 40px rgba(0,169,189,0.18);
+            transform: translateY(-6px);
+        }
+
+        .fb-avatar-placeholder {
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, rgba(0,169,189,0.3), rgba(0,138,158,0.15));
+            border: 2px solid rgba(0,169,189,0.4);
+            flex-shrink: 0;
+        }
+
+        .fb-stars {
+            color: #f59e0b;
+            font-size: 0.9rem;
+            letter-spacing: 2px;
+        }
+
+        .fb-text {
+            color: #b8c5d6;
+            font-size: 0.92rem;
+            line-height: 1.75;
+            font-style: italic;
+            flex: 1;
+        }
+
+        .fb-name {
+            color: #ffffff;
+            font-size: 0.95rem;
+            font-weight: 700;
+            display: block;
+        }
+
+        .fb-role {
+            color: #00a9bd;
+            font-size: 0.8rem;
+            font-weight: 500;
+            display: block;
+            letter-spacing: 0.5px;
+        }
     </style>
 </head>
     
 <body>
     <!-- Floating Social Icons - Left Side -->
     <div class="floating-social">
-        <a href="https://www.instagram.com/veoma_makerhub?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" class="social-icon" title="Instagram">
-            📷
+        <a href="https://www.instagram.com/veoma_makerhub?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" class="social-icon insta-icon" title="Instagram">
+            <img src="images/icons/insta.png" alt="Instagram">
         </a>
         <a href="https://www.youtube.com/@veoma_labs" target="_blank" class="social-icon" title="YouTube">
-            ▶️
+            <img src="images/icons/youtube.png" alt="YouTube">
+        </a>
+        <a href="https://www.udemy.com/course/3d-printing-from-basics-to-advanced-design-materials/?couponCode=GOKUL599" target="_blank" class="social-icon" title="Udemy">
+            <img src="images/icons/udemy.png" alt="Udemy">
         </a>
     </div>
     
     <!-- Floating Career Icon - Right Side -->
     <div class="floating-career">
-        <div class="career-icon" onclick="openCareerModal()" title="Career Opportunities">
-            💼
+        <div class="career-icon" onclick="openCareerModal()" title="Join Us">
+            <img src="images/Join-us/join.png" alt="Join Us">
         </div>
     </div>
     
@@ -237,22 +591,22 @@
             
             <div class="career-options">
                 <div class="career-option-btn" onclick="selectCareerType('intern')">
-                    <div class="icon">🎓</div>
+                    <div class="icon"><img src="images/Join-us/intern.png" alt="Intern" style="width:60px;height:60px;object-fit:contain;"></div>
                     <div class="label">Intern</div>
                 </div>
                 <div class="career-option-btn" onclick="selectCareerType('employee')">
-                    <div class="icon">💼</div>
+                    <div class="icon"><img src="images/Join-us/employee.png" alt="Employee" style="width:60px;height:60px;object-fit:contain;"></div>
                     <div class="label">Employee</div>
                 </div>
             </div>
             
             <div class="contact-options" id="contactOptions">
                 <a href="#" id="whatsappLink" class="contact-btn" target="_blank">
-                    <span>📱</span>
+                    <img src="images/Join-us/whats-app.png" alt="WhatsApp" style="width:28px;height:28px;object-fit:contain;">
                     <span>WhatsApp</span>
                 </a>
                 <a href="#" id="gmailLink" class="contact-btn" target="_blank">
-                    <span>✉️</span>
+                    <img src="images/Join-us/gmail.png" alt="Gmail" style="width:28px;height:28px;object-fit:contain;">
                     <span>Gmail</span>
                 </a>
             </div>
@@ -382,7 +736,7 @@
                 </div>
                 <div class="feature">
                     <h3>🎨 Customization</h3>
-                    <p>From prototypes to custom parts, jewelry, miniatures, and architectural models.</p>
+                    <p>From prototypes to custom parts, miniatures, and architectural models.</p>
                 </div>
                 <div class="feature">
                     <h3>🔧 Support</h3>
@@ -398,171 +752,96 @@
     <!-- Printing Quote Modal -->
     <div id="printingModal" class="modal premium-modal">
         <div class="modal-backdrop"></div>
-        <div class="modal-content premium-modal-content">
-            <div class="modal-header">
-                <div class="modal-icon">
-                    <span><img src="images/removed_bg3.png" alt=""></span>
+        <div class="feedback-modal-box" style="max-width:750px; width:95%; height:95vh; overflow-y:auto; position:relative; margin:auto; scrollbar-width:none; -ms-overflow-style:none;">
+            <button class="feedback-modal-close" onclick="closeServiceModal('printing')">&times;</button>
+            <div style="text-align:center; margin-bottom:25px;">
+                <img src="images/removed_bg3.png" alt="Printing" style="width:70px;height:70px;object-fit:contain; filter:brightness(1.8) drop-shadow(0 0 10px rgba(0,169,189,0.6));">
+                <h3 style="color:#00a9bd; font-size:1.5rem; font-weight:800; margin-top:10px;">3D Printing Quote</h3>
+            </div>
+            <form id="printingForm" onsubmit="handleServiceSubmit(event, 'printing')">
+                <div style="display:grid; grid-template-columns:1fr 1fr; gap:15px; margin-bottom:15px;">
+                    <div class="fb-form-group"><label>Full Name</label><input type="text" name="name" placeholder="Enter your full name" required></div>
+                    <div class="fb-form-group"><label>WhatsApp Number</label><input type="tel" name="mobile" placeholder="+91 98765 43210" pattern="[6-9][0-9]{9}" required></div>
                 </div>
-                <h3 class="modal-title">3D Printing Quote</h3>
-                <span class="close premium-close" onclick="closeServiceModal('printing')">&times;</span>
-            </div>
-            <div class="modal-body">
-                <form id="printingForm" class="premium-quote-form" onsubmit="handleServiceSubmit(event, 'printing')">
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label>Full Name</label>
-                            <input type="text" name="name" placeholder="Enter your full name" required>
-                        </div>
-                        <div class="form-group">
-                            <label>WhatsApp Number</label>
-                            <input type="tel" name="mobile" placeholder="+91 98765 43210" pattern="[6-9][0-9]{9}" title="Enter valid 10-digit Indian mobile number starting with 6-9" required>
-                        </div>
+                <div class="fb-form-group"><label>Email Address</label><input type="email" name="email" placeholder="your.email@company.com" required></div>
+                <div class="fb-form-group">
+                    <label>Dimensions (mm)</label>
+                    <div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:10px;">
+                        <input type="number" name="dimX" placeholder="Length (X)" required style="padding:13px 16px; background:rgba(255,255,255,0.05); border:1px solid rgba(0,169,189,0.2); border-radius:12px; color:#fff; font-size:0.95rem;">
+                        <input type="number" name="dimY" placeholder="Width (Y)" required style="padding:13px 16px; background:rgba(255,255,255,0.05); border:1px solid rgba(0,169,189,0.2); border-radius:12px; color:#fff; font-size:0.95rem;">
+                        <input type="number" name="dimZ" placeholder="Height (Z)" required style="padding:13px 16px; background:rgba(255,255,255,0.05); border:1px solid rgba(0,169,189,0.2); border-radius:12px; color:#fff; font-size:0.95rem;">
                     </div>
-                    <div class="form-group">
-                        <label>Email Address</label>
-                        <input type="email" name="email" placeholder="your.email@company.com" required>
-                    </div>
-                    <div class="form-group">
-                        <label>Dimensions (mm)</label>
-                        <div class="dimensions-grid premium-dimensions">
-                            <input type="number" name="dimX" placeholder="Length (X)" required>
-                            <input type="number" name="dimY" placeholder="Width (Y)" required>
-                            <input type="number" name="dimZ" placeholder="Height (Z)" required>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label>Upload 3D File</label>
-                        <div class="file-upload-area">
-                            <input type="file" name="file" accept=".stl,.obj" required id="fileInput">
-                            <div class="file-upload-text">
-                                <span class="upload-icon">📁</span>
-                                <span>Drop your .STL or .OBJ file here or click to browse</span>
-                            </div>
-                        </div>
-                        <span id="fileError" style="color: #ff6b6b; font-size: 0.9rem; display: none; margin-top: 5px;">Only STL or OBJ files are allowed.</span>
-                    </div>
-                    <div class="form-group">
-                        <label>Select Material</label>
-                        <select name="material" required style="padding: 18px 20px; border: 1px solid rgba(255,255,255,0.2); border-radius: 15px; font-size: 1rem; background: rgba(255,255,255,0.08); color: #ffffff; width: 100%;">
-                            <option value="" disabled selected>Choose material</option>
-                            <option value="PLA">PLA</option>
-                            <option value="PLA+">PLA+</option>
-                            <option value="ABS">ABS</option>
-                            <option value="TPU">TPU</option>
-                            <option value="PETG">PETG</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label>Project Details</label>
-                        <textarea name="comments" placeholder="Describe your project requirements, material preferences, quantity, and any special instructions..." required></textarea>
-                    </div>
-                    <button type="submit" class="premium-submit-btn">
-                        <span>Request Quote</span>
-                        <div class="btn-icon">→</div>
-                    </button>
-                </form>
-            </div>
+                </div>
+                <div class="fb-form-group"><label>Upload 3D File (.STL or .OBJ)</label>
+                        <label for="fileInput" style="display:flex; align-items:center; gap:12px; padding:14px 20px; background:rgba(0,169,189,0.08); border:2px dashed rgba(0,169,189,0.4); border-radius:12px; cursor:pointer; color:#00a9bd; font-size:0.95rem; font-weight:600; transition:all 0.3s; text-transform:none; letter-spacing:0;">
+                            <span style="font-size:1.5rem;">📁</span>
+                            <span id="fileLabel">Click to browse .STL or .OBJ file</span>
+                        </label>
+                        <input type="file" name="file" accept=".stl,.obj" required id="fileInput" style="display:none;" onchange="document.getElementById('fileLabel').textContent = this.files[0] ? this.files[0].name : 'Click to browse .STL or .OBJ file'">
+                </div>
+                <div class="fb-form-group">
+                    <label>Select Material</label>
+                    <select name="material" required class="premium-select"><option value="" disabled selected>Choose material</option><option value="PLA">PLA</option><option value="PLA+">PLA+</option><option value="ABS">ABS</option><option value="TPU">TPU</option><option value="PETG">PETG</option></select>
+                </div>
+                <div class="fb-form-group"><label>Project Details</label><textarea name="comments" placeholder="Describe your project requirements..." style="height:90px; resize:none;" required></textarea></div>
+                <button type="submit" class="fb-submit-btn">Request Quote &rarr;</button>
+            </form>
         </div>
     </div>
 
     <!-- Scanning Quote Modal -->
     <div id="scanningModal" class="modal premium-modal">
         <div class="modal-backdrop"></div>
-        <div class="modal-content premium-modal-content">
-            <div class="modal-header">
-                <div class="modal-icon">
-                    <span><img src="images/scanner.png" alt=""></span>
-                
+        <div class="feedback-modal-box" style="max-width:750px; width:95%; height:95vh; overflow-y:auto; position:relative; margin:auto; scrollbar-width:none; -ms-overflow-style:none;">
+            <button class="feedback-modal-close" onclick="closeServiceModal('scanning')">&times;</button>
+            <div style="text-align:center; margin-bottom:25px;">
+                <img src="images/scanner.png" alt="Scanning" style="width:70px;height:70px;object-fit:contain; filter:brightness(1.8) drop-shadow(0 0 10px rgba(0,169,189,0.6));">
+                <h3 style="color:#00a9bd; font-size:1.5rem; font-weight:800; margin-top:10px;">3D Scanning Quote</h3>
+            </div>
+            <form id="scanningForm" onsubmit="handleServiceSubmit(event, 'scanning')">
+                <div style="display:grid; grid-template-columns:1fr 1fr; gap:15px; margin-bottom:15px;">
+                    <div class="fb-form-group"><label>Full Name</label><input type="text" name="name" placeholder="Enter your full name" required></div>
+                    <div class="fb-form-group"><label>WhatsApp Number</label><input type="tel" name="mobile" placeholder="+91 98765 43210" pattern="[6-9][0-9]{9}" required></div>
                 </div>
-                <h3 class="modal-title">3D Scanning Quote</h3>
-                <span class="close premium-close" onclick="closeServiceModal('scanning')">&times;</span>
-            </div>
-            <div class="modal-body">
-                <form id="scanningForm" class="premium-quote-form" onsubmit="handleServiceSubmit(event, 'scanning')">
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label>Full Name</label>
-                            <input type="text" name="name" placeholder="Enter your full name" required>
-                        </div>
-                        <div class="form-group">
-                            <label>WhatsApp Number</label>
-                            <input type="tel" name="mobile" placeholder="+91 98765 43210" pattern="[6-9][0-9]{9}" title="Enter valid 10-digit Indian mobile number starting with 6-9" required>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label>Email Address</label>
-                        <input type="email" name="email" placeholder="your.email@company.com" required>
-                    </div>
-                    <div class="form-group">
-                        <label>Upload Images (Min 4-5)</label>
-                        <div class="file-upload-area">
-                            <input type="file" name="images" accept="image/*" multiple required>
-                            <div class="file-upload-text">
-                                <span class="upload-icon">📷</span>
-                                <span>Drop your images here or click to browse</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label>Project Details</label>
-                        <textarea name="comments" placeholder="Describe your scanning requirements, object details, and any special instructions..." required></textarea>
-                    </div>
-                    <button type="submit" class="premium-submit-btn">
-                        <span>Request Quote</span>
-                        <div class="btn-icon">→</div>
-                    </button>
-                </form>
-            </div>
+                <div class="fb-form-group"><label>Email Address</label><input type="email" name="email" placeholder="your.email@company.com" required></div>
+                <div class="fb-form-group"><label>Upload Images (Min 4-5)</label>
+                        <label style="display:flex; align-items:center; gap:12px; padding:14px 20px; background:rgba(0,169,189,0.08); border:2px dashed rgba(0,169,189,0.4); border-radius:12px; cursor:pointer; color:#00a9bd; font-size:0.95rem; font-weight:600; transition:all 0.3s; text-transform:none; letter-spacing:0;">
+                            <span style="font-size:1.5rem;">📷</span>
+                            <span id="scanFileLabel">Click to browse images (min 4-5)</span>
+                        </label>
+                        <input type="file" name="images" accept="image/*" multiple required style="display:none;" onchange="document.getElementById('scanFileLabel').textContent = this.files.length + ' file(s) selected'">
+                </div>
+                <div class="fb-form-group"><label>Project Details</label><textarea name="comments" placeholder="Describe your scanning requirements..." style="height:90px; resize:none;" required></textarea></div>
+                <button type="submit" class="fb-submit-btn">Request Quote &rarr;</button>
+            </form>
         </div>
     </div>
 
     <!-- Designing Quote Modal -->
     <div id="designingModal" class="modal premium-modal">
         <div class="modal-backdrop"></div>
-        <div class="modal-content premium-modal-content">
-            <div class="modal-header">
-                <div class="modal-icon">
-                    <span><img src="images/design.png" alt=""></span>
+        <div class="feedback-modal-box" style="max-width:750px; width:95%; height:95vh; overflow-y:auto; position:relative; margin:auto; scrollbar-width:none; -ms-overflow-style:none;">
+            <button class="feedback-modal-close" onclick="closeServiceModal('designing')">&times;</button>
+            <div style="text-align:center; margin-bottom:25px;">
+                <img src="images/design.png" alt="Designing" style="width:70px;height:70px;object-fit:contain; filter:brightness(1.8) drop-shadow(0 0 10px rgba(0,169,189,0.6));">
+                <h3 style="color:#00a9bd; font-size:1.5rem; font-weight:800; margin-top:10px;">3D Designing Quote</h3>
+            </div>
+            <form id="designingForm" onsubmit="handleServiceSubmit(event, 'designing')">
+                <div style="display:grid; grid-template-columns:1fr 1fr; gap:15px; margin-bottom:15px;">
+                    <div class="fb-form-group"><label>Full Name</label><input type="text" name="name" placeholder="Enter your full name" required></div>
+                    <div class="fb-form-group"><label>WhatsApp Number</label><input type="tel" name="mobile" placeholder="+91 98765 43210" pattern="[6-9][0-9]{9}" required></div>
                 </div>
-                <h3 class="modal-title">3D Designing Quote</h3>
-                <span class="close premium-close" onclick="closeServiceModal('designing')">&times;</span>
-            </div>
-            <div class="modal-body">
-                <form id="designingForm" class="premium-quote-form" onsubmit="handleServiceSubmit(event, 'designing')">
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label>Full Name</label>
-                            <input type="text" name="name" placeholder="Enter your full name" required>
-                        </div>
-                        <div class="form-group">
-                            <label>WhatsApp Number</label>
-                            <input type="tel" name="mobile" placeholder="+91 98765 43210" pattern="[6-9][0-9]{9}" title="Enter valid 10-digit Indian mobile number starting with 6-9" required>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label>Email Address</label>
-                        <input type="email" name="email" placeholder="your.email@company.com" required>
-                    </div>
-                    <div class="form-group">
-                        <label>Product Images (Min 4-5)</label>
-                        <div class="file-upload-area">
-                            <input type="file" name="images" accept="image/*" multiple required>
-                            <div class="file-upload-text">
-                                <span class="upload-icon">🖼️</span>
-                                <span>Drop your product images here or click to browse</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label>Project Details</label>
-                        <textarea name="comments" placeholder="Describe your design requirements, specifications, and any special instructions..." required></textarea>
-                    </div>
-                    <button type="submit" class="premium-submit-btn">
-                        <span>Request Quote</span>
-                        <div class="btn-icon">→</div>
-                    </button>
-                </form>
-            </div>
+                <div class="fb-form-group"><label>Email Address</label><input type="email" name="email" placeholder="your.email@company.com" required></div>
+                <div class="fb-form-group"><label>Product Images (Min 4-5)</label>
+                        <label style="display:flex; align-items:center; gap:12px; padding:14px 20px; background:rgba(0,169,189,0.08); border:2px dashed rgba(0,169,189,0.4); border-radius:12px; cursor:pointer; color:#00a9bd; font-size:0.95rem; font-weight:600; transition:all 0.3s; text-transform:none; letter-spacing:0;">
+                            <span style="font-size:1.5rem;">🖼️</span>
+                            <span id="designFileLabel">Click to browse product images (min 4-5)</span>
+                        </label>
+                        <input type="file" name="images" accept="image/*" multiple required style="display:none;" onchange="document.getElementById('designFileLabel').textContent = this.files.length + ' file(s) selected'">
+                </div>
+                <div class="fb-form-group"><label>Project Details</label><textarea name="comments" placeholder="Describe your design requirements..." style="height:90px; resize:none;" required></textarea></div>
+                <button type="submit" class="fb-submit-btn">Request Quote &rarr;</button>
+            </form>
         </div>
     </div>
 
@@ -577,47 +856,51 @@
     </div>
 
     <!-- 3D Carousel Section -->
-    <section id="carousel-3d-section" class="carousel-section">
-
-
-        <div class="carousel-header">
-            <h2>Innovation Gallery</h2>
-            <p>Discover our high-quality 3D printing materials</p>
+    <section id="carousel-3d-section" class="carousel-section" style="background: linear-gradient(135deg, #000308 0%, #0a0f1c 30%, #000308 70%, #0a0f1c 100%) !important; position: relative; border-top: 1px solid rgba(0,169,189,0.2); border-bottom: 1px solid rgba(0,169,189,0.2); padding: 100px 0; overflow: hidden;">
+        <!-- Background Effects -->
+        <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: linear-gradient(45deg, rgba(0,169,189,0.02) 25%, transparent 25%), linear-gradient(-45deg, rgba(0,169,189,0.02) 25%, transparent 25%), linear-gradient(45deg, transparent 75%, rgba(0,169,189,0.02) 75%), linear-gradient(-45deg, transparent 75%, rgba(0,169,189,0.02) 75%); background-size: 60px 60px; background-position: 0 0, 0 30px, 30px -30px, -30px 0px; z-index: 1;"></div>
+        
+        <div class="carousel-header" style="position: relative; z-index: 10;">
+            <div style="display: inline-block; background: rgba(0,169,189,0.2); color: #00a9bd; padding: 8px 20px; border-radius: 25px; font-size: 0.85rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 20px; border: 1px solid rgba(0,169,189,0.4); backdrop-filter: blur(10px);">SHOWCASE</div>
+            <h2 style="font-size: 3.2rem !important; font-weight: 700 !important; color: #ffffff !important; margin-bottom: 15px !important; text-align: center; background: none !important; -webkit-text-fill-color: #ffffff !important;">Innovation Gallery</h2>
+            <div style="width: 80px; height: 4px; background: #00a9bd; margin: 0 auto 20px; border-radius: 2px;"></div>
+            <p style="font-size: 1.2rem !important; color: #cccccc !important; text-align: center; max-width: 600px; margin: 0 auto;">Discover our high-quality 3D printing materials and precision craftsmanship</p>
         </div>
         <div class="carousel-3d-container">
-            <div class="carousel carousel-left">
-                <div class="carousel__face"
-                    style="background-image: url('images/cartoon-1.jpeg');">
-                    1</div>
-                <div class="carousel__face"
-                    style="background-image: url('images/pikachu.jpeg');">
-                    2</div>
-                <div class="carousel__face"
-                    style="background-image: url('images/vinayaga.jpeg');">
-                    3</div>
-                <div class="carousel__face"
-                    style="background-image: url('images/teddy.jpeg');">
-                    4</div>
-                <div class="carousel__face"
-                    style="background-image: url('images/pikachu.jpeg');">
-                    5</div>
-                <div class="carousel__face"
-                    style="background-image: url('images/cartoon-1.jpeg');">
-                    6</div>
-            </div>
-            <div class="carousel carousel-right">
-                <div class="carousel__face"
-                    style="background-image: url('images/vinayaga.jpeg');">
-                    A</div>
-                <div class="carousel__face"
-                    style="background-image: url('images/pikachu.jpeg');">
-                    C</div>
-                <div class="carousel__face"
-                    style="background-image: url('images/cartoon-1.jpeg');">
-                    D</div>
-                <div class="carousel__face"
-                    style="background-image: url('images/vinayaga.jpeg');">
-                    E</div>
+            <div class="gallery-track-wrapper">
+                <!-- Row 1 - Scrolls Left -->
+                <div class="gallery-track">
+                    <div class="gallery-card"><img src="images/cartoon-1.jpeg" alt="3D Print"><div class="gallery-card-overlay"><span class="gallery-card-label">3D Character Print</span></div></div>
+                    <div class="gallery-card"><img src="images/pikachu.jpeg" alt="Pikachu"><div class="gallery-card-overlay"><span class="gallery-card-label">Pikachu Model</span></div></div>
+                    <div class="gallery-card"><img src="images/vinayaga.jpeg" alt="Vinayaga"><div class="gallery-card-overlay"><span class="gallery-card-label">Vinayaga Figurine</span></div></div>
+                    <div class="gallery-card"><img src="images/teddy.jpeg" alt="Teddy"><div class="gallery-card-overlay"><span class="gallery-card-label">Teddy Bear Print</span></div></div>
+                    <div class="gallery-card"><img src="images/pikachu.jpeg" alt="Pikachu"><div class="gallery-card-overlay"><span class="gallery-card-label">Pikachu Model</span></div></div>
+                    <div class="gallery-card"><img src="images/cartoon-1.jpeg" alt="3D Print"><div class="gallery-card-overlay"><span class="gallery-card-label">3D Character Print</span></div></div>
+                    <!-- Duplicates for seamless loop -->
+                    <div class="gallery-card"><img src="images/cartoon-1.jpeg" alt="3D Print"><div class="gallery-card-overlay"><span class="gallery-card-label">3D Character Print</span></div></div>
+                    <div class="gallery-card"><img src="images/pikachu.jpeg" alt="Pikachu"><div class="gallery-card-overlay"><span class="gallery-card-label">Pikachu Model</span></div></div>
+                    <div class="gallery-card"><img src="images/vinayaga.jpeg" alt="Vinayaga"><div class="gallery-card-overlay"><span class="gallery-card-label">Vinayaga Figurine</span></div></div>
+                    <div class="gallery-card"><img src="images/teddy.jpeg" alt="Teddy"><div class="gallery-card-overlay"><span class="gallery-card-label">Teddy Bear Print</span></div></div>
+                    <div class="gallery-card"><img src="images/pikachu.jpeg" alt="Pikachu"><div class="gallery-card-overlay"><span class="gallery-card-label">Pikachu Model</span></div></div>
+                    <div class="gallery-card"><img src="images/cartoon-1.jpeg" alt="3D Print"><div class="gallery-card-overlay"><span class="gallery-card-label">3D Character Print</span></div></div>
+                </div>
+
+                <!-- Row 2 - Scrolls Right -->
+                <div class="gallery-track-reverse">
+                    <div class="gallery-card"><img src="images/vinayaga.jpeg" alt="Vinayaga"><div class="gallery-card-overlay"><span class="gallery-card-label">Vinayaga Figurine</span></div></div>
+                    <div class="gallery-card"><img src="images/pikachu.jpeg" alt="Pikachu"><div class="gallery-card-overlay"><span class="gallery-card-label">Pikachu Model</span></div></div>
+                    <div class="gallery-card"><img src="images/cartoon-1.jpeg" alt="3D Print"><div class="gallery-card-overlay"><span class="gallery-card-label">3D Character Print</span></div></div>
+                    <div class="gallery-card"><img src="images/teddy.jpeg" alt="Teddy"><div class="gallery-card-overlay"><span class="gallery-card-label">Teddy Bear Print</span></div></div>
+                    <div class="gallery-card"><img src="images/vinayaga.jpeg" alt="Vinayaga"><div class="gallery-card-overlay"><span class="gallery-card-label">Vinayaga Figurine</span></div></div>
+                    <div class="gallery-card"><img src="images/pikachu.jpeg" alt="Pikachu"><div class="gallery-card-overlay"><span class="gallery-card-label">Pikachu Model</span></div></div>
+                    <!-- Duplicates for seamless loop -->
+                    <div class="gallery-card"><img src="images/vinayaga.jpeg" alt="Vinayaga"><div class="gallery-card-overlay"><span class="gallery-card-label">Vinayaga Figurine</span></div></div>
+                    <div class="gallery-card"><img src="images/pikachu.jpeg" alt="Pikachu"><div class="gallery-card-overlay"><span class="gallery-card-label">Pikachu Model</span></div></div>
+                    <div class="gallery-card"><img src="images/cartoon-1.jpeg" alt="3D Print"><div class="gallery-card-overlay"><span class="gallery-card-label">3D Character Print</span></div></div>
+                    <div class="gallery-card"><img src="images/teddy.jpeg" alt="Teddy"><div class="gallery-card-overlay"><span class="gallery-card-label">Teddy Bear Print</span></div></div>
+                    <div class="gallery-card"><img src="images/vinayaga.jpeg" alt="Vinayaga"><div class="gallery-card-overlay"><span class="gallery-card-label">Vinayaga Figurine</span></div></div>
+                    <div class="gallery-card"><img src="images/pikachu.jpeg" alt="Pikachu"><div class="gallery-card-overlay"><span class="gallery-card-label">Pikachu Model</span></div></div>
+                </div>
             </div>
         </div>
     </section>
@@ -657,10 +940,191 @@
     </section>
 
 
+    <!-- Customer Feedback Section -->
+    <section class="feedback-section">
+        <div class="feedback-header">
+            <div class="feedback-badge">TESTIMONIALS</div>
+            <h2>What Our Customers Say</h2>
+            <div class="feedback-underline"></div>
+            <button class="add-feedback-btn" onclick="openFeedbackModal()">+ Add Your Feedback</button>
+        </div>
+
+        <!-- Feedback Modal -->
+        <div class="feedback-modal" id="feedbackModal">
+            <div class="feedback-modal-box">
+                <button class="feedback-modal-close" onclick="closeFeedbackModal()">&times;</button>
+                <h3>Share Your Experience</h3>
+                <p>We'd love to hear what you think!</p>
+                <div class="fb-form-group">
+                    <label>Your Name</label>
+                    <input type="text" id="fbName" placeholder="Enter your name">
+                </div>
+                <div class="fb-form-group">
+                    <label>Profession / Role</label>
+                    <input type="text" id="fbRole" placeholder="e.g. Engineer, Student, Designer">
+                </div>
+                <div class="fb-form-group">
+                    <label>Your Message</label>
+                    <textarea id="fbMessage" placeholder="Share your experience with VEOMA Labs..."></textarea>
+                </div>
+                <div class="fb-form-group">
+                    <label>Rating</label>
+                    <div class="fb-rating-group" id="fbRating">
+                        <span class="fb-star" data-val="1">&#9733;</span>
+                        <span class="fb-star" data-val="2">&#9733;</span>
+                        <span class="fb-star" data-val="3">&#9733;</span>
+                        <span class="fb-star" data-val="4">&#9733;</span>
+                        <span class="fb-star" data-val="5">&#9733;</span>
+                    </div>
+                </div>
+                <button class="fb-submit-btn" onclick="submitFeedback()">Done &rarr;</button>
+            </div>
+        </div>
+        <div class="feedback-track-wrapper">
+            <div class="feedback-track">
+                <div class="feedback-card">
+                    <div class="fb-avatar-placeholder"></div>
+                    <div class="fb-stars">★★★★★</div>
+                    <p class="fb-text">"Absolutely amazing print quality! The layer precision was incredible and the final product exceeded all my expectations."</p>
+                    <span class="fb-name">Rahul Sharma</span>
+                    <span class="fb-role">Product Designer</span>
+                </div>
+                <div class="feedback-card">
+                    <div class="fb-avatar-placeholder"></div>
+                    <div class="fb-stars">★★★★★</div>
+                    <p class="fb-text">"Fast delivery and great communication throughout the project. Best 3D printing service in Chennai!"</p>
+                    <span class="fb-name">Priya Nair</span>
+                    <span class="fb-role">Engineering Student</span>
+                </div>
+                <div class="feedback-card">
+                    <div class="fb-avatar-placeholder"></div>
+                    <div class="fb-stars">★★★★★</div>
+                    <p class="fb-text">"The workshop was incredibly informative. Learned so much about 3D printing in just one session!"</p>
+                    <span class="fb-name">Arun Kumar</span>
+                    <span class="fb-role">Mechanical Engineer</span>
+                </div>
+                <div class="feedback-card">
+                    <div class="fb-avatar-placeholder"></div>
+                    <div class="fb-stars">★★★★★</div>
+                    <p class="fb-text">"My prototype came out exactly as I imagined. The team was creative and professional throughout."</p>
+                    <span class="fb-name">Sneha Reddy</span>
+                    <span class="fb-role">Startup Founder</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Include Footer -->
     <div id="footer-placeholder"></div>
 
     <script src="js/main.js"></script>
+    <script>
+        // Career Modal Functions
+        function openCareerModal() {
+            document.getElementById('careerModal').style.display = 'block';
+            document.querySelector('.career-options').style.display = 'flex';
+            document.getElementById('contactOptions').style.display = 'none';
+        }
+        
+        function closeCareerModal() {
+            document.getElementById('careerModal').style.display = 'none';
+        }
+        
+        function selectCareerType(type) {
+            document.querySelector('.career-options').style.display = 'none';
+            document.getElementById('contactOptions').style.display = 'flex';
+            
+            const whatsappLink = document.getElementById('whatsappLink');
+            const gmailLink = document.getElementById('gmailLink');
+            
+            if (type === 'intern') {
+                whatsappLink.href = 'https://wa.me/917010177745?text=Hi, I am interested in the Internship position at VEOMA Labs';
+                gmailLink.href = 'https://mail.google.com/mail/u/0/?view=cm&fs=1&to=gokul20001116@gmail.com&su=Internship+Application';
+            } else {
+                whatsappLink.href = 'https://wa.me/917010177745?text=Hi, I am interested in the Employee position at VEOMA Labs';
+                gmailLink.href = 'https://mail.google.com/mail/u/0/?view=cm&fs=1&to=gokul20001116@gmail.com&su=Employment+Application';
+            }
+        }
+        
+        // File upload area click trigger
+        document.querySelector('.file-upload-area').addEventListener('click', function() {
+            document.getElementById('fileInput').click();
+        });
+
+        // File validation for printing form
+        document.getElementById('fileInput').addEventListener('change', function(e) {
+            const file = e.target.files[0];
+            const errorSpan = document.getElementById('fileError');
+            if (file) {
+                const fileName = file.name.toLowerCase();
+                if (!fileName.endsWith('.stl') && !fileName.endsWith('.obj')) {
+                    errorSpan.style.display = 'block';
+                    e.target.value = '';
+                } else {
+                    errorSpan.style.display = 'none';
+                }
+            }
+        });
+        
+        // Close modal when clicking outside
+        window.onclick = function(event) {
+            const modal = document.getElementById('careerModal');
+            if (event.target == modal) closeCareerModal();
+            if (event.target == document.getElementById('feedbackModal')) closeFeedbackModal();
+        }
+
+        // Feedback Modal
+        let fbRating = 0;
+
+        function openFeedbackModal() {
+            document.getElementById('feedbackModal').classList.add('open');
+            fbRating = 0;
+            document.querySelectorAll('.fb-star').forEach(s => s.classList.remove('active'));
+            document.getElementById('fbName').value = '';
+            document.getElementById('fbRole').value = '';
+            document.getElementById('fbMessage').value = '';
+        }
+
+        function closeFeedbackModal() {
+            document.getElementById('feedbackModal').classList.remove('open');
+        }
+
+        document.getElementById('fbRating').addEventListener('click', function(e) {
+            if (e.target.classList.contains('fb-star')) {
+                fbRating = parseInt(e.target.dataset.val);
+                document.querySelectorAll('.fb-star').forEach((s, i) => {
+                    s.classList.toggle('active', i < fbRating);
+                });
+            }
+        });
+
+        function submitFeedback() {
+            const name    = document.getElementById('fbName').value.trim();
+            const role    = document.getElementById('fbRole').value.trim();
+            const message = document.getElementById('fbMessage').value.trim();
+
+            if (!name || !role || !message || fbRating === 0) {
+                alert('Please fill all fields and select a rating.');
+                return;
+            }
+
+            const stars = '★'.repeat(fbRating) + '☆'.repeat(5 - fbRating);
+            const card = document.createElement('div');
+            card.className = 'feedback-card';
+            card.innerHTML = `
+                <div class="fb-avatar-placeholder"></div>
+                <div class="fb-stars">${stars}</div>
+                <p class="fb-text">"${message}"</p>
+                <span class="fb-name">${name}</span>
+                <span class="fb-role">${role}</span>
+            `;
+
+            const track = document.querySelector('.feedback-track');
+            track.appendChild(card);
+
+            closeFeedbackModal();
+        }
+    </script>
 </body>
 
 </html>

@@ -41,6 +41,11 @@
     transition: opacity 0.3s ease;
 }
 
+.veo-brand{
+    font-family: 'Orbitron', sans-serif;
+    letter-spacing: 2px;
+}
+
 .brand-dot {
     color: #00a9bd;
     font-size: 1.8rem;

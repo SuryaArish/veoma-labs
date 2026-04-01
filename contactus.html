@@ -15,7 +15,12 @@
 </head>
 
 <body>
-
+    <!-- Floating Social Icons -->
+    <div class="floating-social">
+        <a href="https://www.instagram.com/veoma_labs?igsh=MWdsaXY2ZTlnbnpqNg==" target="_blank" class="social-icon insta-icon" title="Instagram"><img src="images/icons/insta.png" alt="Instagram"></a>
+        <a href="https://www.youtube.com/@veoma_labs" target="_blank" class="social-icon" title="YouTube"><img src="images/icons/youtube.png" alt="YouTube"></a>
+        <a href="https://www.udemy.com/course/3d-printing-from-basics-to-advanced-design-materials/?couponCode=GOKUL599" target="_blank" class="social-icon" title="Udemy"><img src="images/icons/udemy.png" alt="Udemy"></a>
+    </div>
     <!-- Navbar Placeholder -->
     <div id="navbar-placeholder"></div>
 
@@ -36,7 +41,7 @@
                         <span class="stat-label">Available Support</span>
                     </div>
                     <div class="stat">
-                        <span class="stat-number">&lt;24h</span>
+                        <span class="stat-number">24h</span>
                         <span class="stat-label">Response Time</span>
                     </div>
                     <div class="stat">
@@ -50,66 +55,63 @@
 
     <!-- Main Content -->
     <div class="contact-main">
-        <div class="contact-container">
-            <!-- Contact Information -->
-            <div class="contact-info">
-                <h2>Our Locations</h2>
-                
-                <div class="office-details">
-                    <h3>Office Address</h3>
-                    <p>18, Ganesh Nagar Main Road<br>
-                    Selaiyur, Tambaram<br>
-                    Chennai, Tamil Nadu - 600073</p>
-                </div>
+        <div class="container">
 
-                <div class="office-details">
-                    <h3>Registered Address</h3>
-                    <p>8, Raja Street<br>
-                    Salangapalayam<br>
-                    Erode(Dt), Tamil Nadu - 638455</p>
+            <!-- Our Locations + Contact Details - Side by Side Top -->
+            <div class="contact-info-grid">
+                <div class="contact-info">
+                    <h2>Contact Details</h2>
+                    <div class="office-details contact-details-highlight">
+                        <p><strong>Mobile:</strong> +91 70101 77745</p>
+                        <p><strong>Email:</strong> veomalabs@gmail.com</p>
+                        <p><strong>Business Hours:</strong> Mon-Fri 9:00 AM - 6:00 PM</p>
+                    </div>
                 </div>
-
-                <div class="office-details">
-                    <h3>Contact Details</h3>
-                    <p><strong>Mobile:</strong> +1 (555) 123-4567</p>
-                    <p><strong>Email:</strong> info@veomalabs.com</p>
-                    <p><strong>Business Hours:</strong> Mon-Fri 9:00 AM - 6:00 PM</p>
+                <div class="contact-info">
+                    <h2>Our Locations</h2>
+                    <div class="office-details">
+                        <h3>Office Address</h3>
+                        <p>97, Kundalakeshi Street,<br>
+                        Near Ganesh Nagar Park,<br>
+                        Camp Road,<br>
+                        Tambaram,<br>
+                        Chennai - 600073.</p>
+                    </div>
                 </div>
             </div>
 
-            <!-- Contact Form -->
+            <!-- Reach Out Form - Centered Below -->
             <div class="contact-form-container">
                 <h2>Reach Out Our Team</h2>
-                
                 <form id="contactForm" class="contact-form">
-                    <div class="form-group">
-                        <label for="name">Full Name</label>
-                        <input type="text" id="name" name="name" placeholder="Enter your full name" required>
+                    <div class="form-row-two">
+                        <div class="form-group">
+                            <label for="name">Full Name</label>
+                            <input type="text" id="name" name="name" placeholder="Enter your full name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" name="email" placeholder="your.email@example.com" required>
+                        </div>
                     </div>
-
-                    <div class="form-group">
-                        <label for="email">Email Address</label>
-                        <input type="email" id="email" name="email" placeholder="your.email@example.com" required>
+                    <div class="form-row-two">
+                        <div class="form-group">
+                            <label for="mobile">Mobile Number</label>
+                            <input type="tel" id="mobile" name="mobile" placeholder="+91 98765 43210" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="location">Location</label>
+                            <input type="text" id="location" name="location" placeholder="Your city, state/country" required>
+                        </div>
                     </div>
-
-                    <div class="form-group">
-                        <label for="mobile">Mobile Number</label>
-                        <input type="tel" id="mobile" name="mobile" placeholder="+1 (555) 123-4567" required>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="location">Location</label>
-                        <input type="text" id="location" name="location" placeholder="Your city, state/country" required>
-                    </div>
-
                     <div class="form-group">
                         <label for="message">Your Message</label>
                         <textarea id="message" name="message" rows="5" placeholder="Tell us about your project or inquiry..." required></textarea>
                     </div>
-
                     <button type="submit" class="submit-btn">Send Message</button>
                 </form>
             </div>
+
         </div>
     </div>
 
@@ -133,26 +135,38 @@
         <div class="methods-container">
             <h2 class="methods-title">Other Ways to Connect</h2>
             <div class="methods-grid">
+
                 <!-- Email -->
-                <div class="method-card">
-                    <div class="method-icon">📧</div>
+                <a href="https://mail.google.com/mail/u/0/?view=cm&fs=1&to=veomalabs@gmail.com&su=Inquiry+from+Website" target="_blank" class="method-card" style="text-decoration:none;">
+                    <div class="method-icon"><img src="images/Join-us/gmail.png" alt="Email" style="width:50px;height:50px;object-fit:contain;"></div>
                     <h3 class="method-title">Email Us</h3>
                     <p class="method-desc">Drop us an email anytime and we'll get back to you within 24 hours.</p>
-                </div>
+                    <span class="method-action">veomalabs@gmail.com →</span>
+                </a>
 
                 <!-- Phone -->
-                <div class="method-card">
-                    <div class="method-icon">📞</div>
+                <a href="tel:+917010177745" class="method-card" style="text-decoration:none;">
+                    <div class="method-icon"><img src="images/icons/phone.png" alt="Call" style="width:50px;height:50px;object-fit:contain;border-radius:8px;"></div>
                     <h3 class="method-title">Call Us</h3>
                     <p class="method-desc">Speak directly with our team during business hours for immediate assistance.</p>
-                </div>
+                    <span class="method-action">+91 70101 77745 →</span>
+                </a>
 
                 <!-- Social Media -->
-                <div class="method-card">
-                    <div class="method-icon">🌐</div>
+                <div class="method-card" onclick="toggleSocialOptions(this)" style="cursor:pointer;">
+                    <div class="method-icon"><img src="images/icons/all-in-one-socialmedia.jpg" alt="Social Media" style="width:50px;height:50px;object-fit:contain;border-radius:8px;"></div>
                     <h3 class="method-title">Social Media</h3>
-                    <p class="method-desc">Follow us on social media for updates, news, and behind-the-scenes content.</p>
+                    <p class="method-desc">Reach us via Instagram or WhatsApp for quick responses.</p>
+                    <div class="social-options" style="display:none; margin-top:15px; display:flex; flex-direction:column; gap:10px;">
+                        <a href="https://www.instagram.com/veoma_labs?igsh=MWdsaXY2ZTlnbnpqNg==" target="_blank" class="social-option-btn" onclick="event.stopPropagation()">
+                            <img src="images/icons/insta.png" alt="Instagram" style="width:20px;height:20px;object-fit:contain;"> Instagram
+                        </a>
+                        <a href="https://wa.me/917010177745?text=Hi, I found you on VEOMA Labs website" target="_blank" class="social-option-btn" onclick="event.stopPropagation()">
+                            <img src="images/Join-us/whats-app.png" alt="WhatsApp" style="width:20px;height:20px;object-fit:contain;"> WhatsApp
+                        </a>
+                    </div>
                 </div>
+
             </div>
         </div>
     </section>
@@ -163,6 +177,11 @@
     <!-- Scripts -->
     <script src="js/main.js"></script>
     <script>
+        function toggleSocialOptions(card) {
+            const opts = card.querySelector('.social-options');
+            opts.style.display = opts.style.display === 'none' ? 'flex' : 'none';
+        }
+
         document.addEventListener('DOMContentLoaded', () => {
             const form = document.getElementById('contactForm');
             form.addEventListener('submit', (e) => {

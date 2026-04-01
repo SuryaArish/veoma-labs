@@ -393,9 +393,9 @@ body {
 .workshops-grid {
     display: flex;
     justify-content: center;
-    align-items: flex-end;
-    gap: 80px;
-    max-width: 1200px;
+    align-items: stretch;
+    gap: 30px;
+    max-width: 1100px;
     margin: 0 auto;
     padding: 40px 20px;
 }
@@ -403,35 +403,36 @@ body {
 .workshop-card {
     background: linear-gradient(145deg, rgba(255,255,255,0.08), rgba(255,255,255,0.02));
     border: 2px solid rgba(0,169,189,0.3);
-    border-radius: 25px;
-    padding: 45px 35px;
+    border-radius: 20px;
+    padding: 40px 32px;
     position: relative;
     backdrop-filter: blur(20px);
-    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     flex: 1;
-    max-width: 480px;
+    max-width: 340px;
+    min-width: 260px;
     text-align: center;
     overflow: hidden;
-    box-shadow: 0 15px 50px rgba(0,0,0,0.4);
+    box-shadow: 0 10px 40px rgba(0,0,0,0.4);
+    display: flex;
+    flex-direction: column;
 }
 
 .workshop-card.featured {
-    transform: scale(1.12);
-    background: linear-gradient(145deg, rgba(0,169,189,0.2), rgba(0,138,158,0.12));
+    background: linear-gradient(145deg, rgba(0,169,189,0.18), rgba(0,138,158,0.10));
     border: 2px solid rgba(0,169,189,0.6);
-    padding: 50px 40px;
-    box-shadow: 0 20px 70px rgba(0,169,189,0.4);
+    box-shadow: 0 15px 60px rgba(0,169,189,0.3);
 }
 
 .workshop-card:hover {
-    transform: translateY(-15px) scale(1.03);
+    transform: translateY(-10px);
     border-color: rgba(0,169,189,0.8);
-    box-shadow: 0 30px 80px rgba(0,169,189,0.5);
+    box-shadow: 0 25px 70px rgba(0,169,189,0.4);
 }
 
 .workshop-card.featured:hover {
-    transform: scale(1.15) translateY(-15px);
-    box-shadow: 0 35px 90px rgba(0,169,189,0.6);
+    transform: translateY(-10px);
+    box-shadow: 0 30px 80px rgba(0,169,189,0.5);
 }
 
 .popular-ribbon {
@@ -499,6 +500,7 @@ body {
 .card-features {
     margin-bottom: 20px;
     text-align: left;
+    flex: 1;
 }
 
 .feature {
@@ -519,12 +521,6 @@ body {
     left: -8px;
     color: #00a9bd;
     font-weight: 600;
-}
-
-.card-actions {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
 }
 
 .btn-primary,
@@ -797,6 +793,7 @@ body {
 
 .card-features {
     margin-bottom: 16px;
+    flex: 1;
 }
 
 .feature {
@@ -829,9 +826,10 @@ body {
 .card-actions {
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    gap: 12px;
     position: relative;
     z-index: 2;
+    margin-top: 20px;
 }
 
 .btn-primary,
