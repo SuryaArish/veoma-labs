@@ -367,7 +367,7 @@
                     </div>
                     
                     <div class="card-actions">
-                        <button class="btn-primary" onclick="openJoinModal('Basic')">Enroll Now</button>
+                        <button class="btn-primary" onclick="openJoinModal('Foundation')">Enroll Now</button>
                         <button class="btn-secondary" onclick="openInfoModal('Basic')">View Details</button>
                     </div>
                 </div>
@@ -393,7 +393,7 @@
                     </div>
                     
                     <div class="card-actions">
-                        <button class="btn-primary" onclick="openJoinModal('Medium')">Enroll Now</button>
+                        <button class="btn-primary" onclick="openJoinModal('Accelerator')">Enroll Now</button>
                         <button class="btn-secondary" onclick="openInfoModal('Medium')">View Details</button>
                     </div>
                 </div>
@@ -414,7 +414,7 @@
                     </div>
                     
                     <div class="card-actions">
-                        <button class="btn-primary" onclick="openJoinModal('Advanced')">Enroll Now</button>
+                        <button class="btn-primary" onclick="openJoinModal('Online')">Enroll Now</button>
                         <button class="btn-secondary" onclick="openInfoModal('Advanced')">View Details</button>
                     </div>
                 </div>
@@ -486,8 +486,23 @@
         </div>
     </div>
 
+    <!-- Success Popup -->
+    <div id="successPopup" style="display:none; position:fixed; inset:0; z-index:9999; background:rgba(0,0,0,0.75); backdrop-filter:blur(8px); align-items:center; justify-content:center;">
+        <div style="background:linear-gradient(145deg,#0f1520,#080d18); border:1px solid rgba(0,169,189,0.4); border-radius:24px; padding:50px 40px; width:90%; max-width:440px; text-align:center; box-shadow:0 25px 60px rgba(0,169,189,0.25); animation:modalSlideIn 0.35s cubic-bezier(0.23,1,0.32,1);">
+            <div style="font-size:3.5rem; margin-bottom:16px;">✅</div>
+            <h3 style="color:#ffffff; font-size:1.5rem; font-weight:800; margin-bottom:10px;">Successfully Submitted!</h3>
+            <p id="successMessage" style="color:#a0aec0; font-size:0.95rem; margin-bottom:30px; line-height:1.6;"></p>
+            <div style="display:flex; gap:12px; justify-content:center; flex-wrap:wrap;">
+                <a href="contactus.html" style="padding:12px 24px; background:linear-gradient(135deg,#00a9bd,#008a9e); color:#fff; border-radius:12px; font-weight:700; text-decoration:none; font-size:0.9rem;">Contact Us</a>
+                <button onclick="closeSuccessPopup()" style="padding:12px 24px; background:rgba(255,255,255,0.08); color:#fff; border:1px solid rgba(255,255,255,0.15); border-radius:12px; font-weight:600; font-size:0.9rem; cursor:pointer;">Close</button>
+            </div>
+        </div>
+    </div>
+    <style>@keyframes modalSlideIn{from{opacity:0;transform:translateY(30px) scale(0.95)}to{opacity:1;transform:translateY(0) scale(1)}}</style>
+
     <div id="footer-placeholder"></div>
 
+    <script src="js/api.js"></script>
     <script src="js/main.js"></script>
     <script src="js/workshops.js"></script>
 </body>

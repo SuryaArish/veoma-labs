@@ -122,51 +122,9 @@ window.onclick = function (event) {
 
 // Handle Service Form Submission
 function handleServiceSubmit(e, type) {
-    e.preventDefault();
-
-    // Validate file type for printing form
-    if (type === 'printing') {
-        const fileInput = document.querySelector('#printingForm input[name="file"]');
-        const fileError = document.getElementById('fileError');
-        
-        if (fileInput && fileInput.files.length > 0) {
-            const file = fileInput.files[0];
-            const fileName = file.name.toLowerCase();
-            
-            if (!fileName.endsWith('.stl') && !fileName.endsWith('.obj')) {
-                fileError.style.display = 'block';
-                return;
-            }
-            fileError.style.display = 'none';
-        }
-    }
-
-    // In a real app, you would send data to backend here
-    // For now, we simulate success
-
-    const successPopup = document.getElementById('successPopup');
-    const successMessage = document.getElementById('successMessage');
-    let message = '';
-
-    if (type === 'printing') {
-        message = 'Printing takes 10 days to 1 week for delivery, based on our work.';
-    } else if (type === 'designing') {
-        message = 'Design takes 5 days to 1 week for delivery, based on the complexity of the model.';
-    } else if (type === 'scanning') {
-        // Default message since not specified, but good to have one
-        message = 'Scanning request received. We will contact you shortly with a quote.';
-    }
-
-    successMessage.textContent = message;
-
-    // Close the specific modal
-    closeServiceModal(type);
-
-    // Open Success Popup
-    successPopup.style.display = 'block';
-
-    // Reset form
-    e.target.reset();
+    if (type === 'printing') return submitPrintingForm(e);
+    if (type === 'scanning') return submitScanningForm(e);
+    if (type === 'designing') return submitDesigningForm(e);
 }
 
 // Show notification (Legacy - keeping helper if needed, but unused in new flow)

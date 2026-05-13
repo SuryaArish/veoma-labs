@@ -128,28 +128,19 @@ document.addEventListener('DOMContentLoaded', () => {
     // Form Submission
     const joinForm = document.getElementById('joinForm');
     if (joinForm) {
-        joinForm.addEventListener('submit', (e) => {
+        joinForm.addEventListener('submit', async (e) => {
             e.preventDefault();
+            const name = joinForm.querySelector('input[name="fullname"]').value.trim();
+            const workshopName = document.getElementById('workshopTypeInput').value;
 
-            // Basic Validation (HTML5 'required' handles most)
-            const name = joinForm.querySelector('input[name="fullname"]').value;
-            const email = joinForm.querySelector('input[name="email"]').value;
+            // Determine workshop type from page URL
+            const workshopType = window.location.href.includes('scanning') ? '3d scanning' : '3d printing';
 
-            if (name && email) {
-                // Simulate success
-                const btn = joinForm.querySelector('.submit-btn');
-                const originalText = btn.innerText;
-
-                btn.innerText = 'Submitted!';
-                btn.style.backgroundColor = '#28a745';
-
-                setTimeout(() => {
-                    closeModal('joinModal');
-                    joinForm.reset();
-                    btn.innerText = originalText;
-                    btn.style.backgroundColor = ''; // Reset to default
-                    alert(`Thanks ${name}! We have received your registration.`);
-                }, 1500);
+            const success = await submitWorkshopForm(joinForm, workshopName, workshopType);
+            if (success) {
+                closeModal('joinModal');
+                joinForm.reset();
+                showSuccess('Your workshop registration has been submitted! We will reach you soon.');
             }
         });
     }

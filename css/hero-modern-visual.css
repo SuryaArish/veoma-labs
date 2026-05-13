@@ -43,7 +43,7 @@
 
 .printer-icon {
     width: 100%;
-    max-width: 600px;
+    max-width: 950px;
     height: auto;
     object-fit: contain;
     filter: drop-shadow(0 25px 70px rgba(0,169,189,0.7));
