@@ -484,7 +484,10 @@ function switchPage(key) {
     document.getElementById(`page-${key}`)?.classList.add('active');
     document.getElementById('pageTitle').textContent = pageTitles[key] || key;
     state.activePage = key;
-    if (window.innerWidth <= 768) document.getElementById('sidebar').classList.remove('open');
+    if (window.innerWidth <= 768) {
+        document.getElementById('sidebar').classList.remove('open');
+        document.getElementById('sidebarOverlay').classList.remove('active');
+    }
 }
 
 document.querySelectorAll('.nav-item').forEach(item => {
@@ -495,7 +498,15 @@ document.querySelectorAll('.nav-item').forEach(item => {
 });
 
 document.getElementById('menuToggle').addEventListener('click', () => {
-    document.getElementById('sidebar').classList.toggle('open');
+    const sidebar = document.getElementById('sidebar');
+    const overlay = document.getElementById('sidebarOverlay');
+    sidebar.classList.toggle('open');
+    overlay.classList.toggle('active');
+});
+
+document.getElementById('sidebarOverlay').addEventListener('click', () => {
+    document.getElementById('sidebar').classList.remove('open');
+    document.getElementById('sidebarOverlay').classList.remove('active');
 });
 
 document.getElementById('refreshBtn').addEventListener('click', loadAll);
