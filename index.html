@@ -103,112 +103,226 @@
             display: none;
             position: fixed;
             z-index: 2000;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.7);
+            left: 0; top: 0;
+            width: 100%; height: 100%;
+            background: rgba(0,0,0,0.75);
+            backdrop-filter: blur(8px);
+            align-items: center;
+            justify-content: center;
         }
-        
+
+        .career-modal.open { display: flex; }
+
         .career-modal-content {
-            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
-            margin: 10% auto;
-            padding: 40px;
-            border: 2px solid rgba(0, 169, 189, 0.5);
-            border-radius: 20px;
-            width: 90%;
-            max-width: 500px;
-            box-shadow: 0 0 50px rgba(0, 169, 189, 0.4);
+            background: linear-gradient(145deg, #0a0f1c, #060b15);
+            border: 1px solid rgba(0,169,189,0.25);
+            border-radius: 28px;
+            width: 92%;
+            max-width: 520px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 30px 80px rgba(0,0,0,0.6), 0 0 60px rgba(0,169,189,0.1);
+            animation: careerSlideIn 0.4s cubic-bezier(0.23,1,0.32,1);
+        }
+
+        @keyframes careerSlideIn {
+            0%   { opacity: 0; transform: translateY(-30px) scale(0.96); }
+            100% { opacity: 1; transform: translateY(0) scale(1); }
+        }
+
+        /* Header banner */
+        .career-modal-header {
+            background: linear-gradient(135deg, rgba(0,169,189,0.2), rgba(0,138,158,0.1));
+            border-bottom: 1px solid rgba(0,169,189,0.15);
+            padding: 30px 35px 25px;
+            text-align: center;
             position: relative;
         }
-        
+
+        .career-modal-header::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, #00a9bd, #00d9ff, #00a9bd, transparent);
+        }
+
         .career-close {
+            position: absolute;
+            top: 16px; right: 18px;
+            width: 32px; height: 32px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.07);
+            border: 1px solid rgba(255,255,255,0.12);
             color: #aaa;
-            float: right;
-            font-size: 32px;
-            font-weight: bold;
+            font-size: 1.1rem;
             cursor: pointer;
-            line-height: 20px;
+            display: flex; align-items: center; justify-content: center;
+            transition: all 0.25s;
+            line-height: 1;
         }
-        
-        .career-close:hover {
-            color: #00a9bd;
+
+        .career-close:hover { background: rgba(0,169,189,0.2); color: #00a9bd; border-color: rgba(0,169,189,0.4); }
+
+        .career-modal h2 {
+            color: #ffffff;
+            font-size: 1.5rem;
+            font-weight: 800;
+            margin-bottom: 6px;
+            letter-spacing: -0.3px;
         }
-        
+
+        .career-modal p {
+            color: #7a8a9e;
+            font-size: 0.88rem;
+            margin: 0;
+        }
+
+        /* Modal body */
+        .career-modal-body { padding: 30px 35px 35px; }
+
+        /* Role cards */
         .career-options {
-            display: flex;
-            gap: 30px;
-            justify-content: center;
-            margin: 30px 0;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            margin-bottom: 0;
         }
-        
+
         .career-option-btn {
-            width: 120px;
-            height: 120px;
-            border-radius: 20px;
-            background: rgba(0, 169, 189, 0.2);
-            border: 2px solid rgba(0, 169, 189, 0.5);
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(0,169,189,0.18);
+            border-radius: 18px;
+            padding: 24px 16px 20px;
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: center;
-            gap: 10px;
+            gap: 14px;
             cursor: pointer;
-            transition: all 0.3s ease;
-            color: #00a9bd;
+            transition: all 0.35s cubic-bezier(0.23,1,0.32,1);
+            position: relative;
+            overflow: hidden;
         }
-        
+
+        .career-option-btn::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, #00a9bd, #00d9ff);
+            transform: scaleX(0);
+            transition: transform 0.35s ease;
+        }
+
+        .career-option-btn:hover::before { transform: scaleX(1); }
+
         .career-option-btn:hover {
-            background: rgba(0, 169, 189, 0.4);
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(0, 169, 189, 0.4);
+            background: rgba(0,169,189,0.08);
+            border-color: rgba(0,169,189,0.45);
+            transform: translateY(-4px);
+            box-shadow: 0 12px 35px rgba(0,169,189,0.2);
         }
-        
+
         .career-option-btn .icon {
-            font-size: 40px;
+            width: 70px; height: 70px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 2px solid rgba(0,169,189,0.3);
+            background: rgba(0,169,189,0.1);
+            display: flex; align-items: center; justify-content: center;
         }
-        
+
+        .career-option-btn .icon img {
+            width: 100%; height: 100%;
+            object-fit: contain;
+            padding: 8px;
+        }
+
         .career-option-btn .label {
-            font-size: 16px;
-            font-weight: 600;
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: #ffffff;
+            letter-spacing: 0.3px;
         }
-        
+
+        .career-option-btn .role-desc {
+            font-size: 0.75rem;
+            color: #6a7a8e;
+            text-align: center;
+            line-height: 1.4;
+        }
+
+        /* Contact options */
         .contact-options {
             display: none;
-            gap: 20px;
-            justify-content: center;
-            margin-top: 30px;
+            flex-direction: column;
+            gap: 12px;
         }
-        
+
+        .contact-options-label {
+            font-size: 0.8rem;
+            color: #6a7a8e;
+            text-align: center;
+            margin-bottom: 4px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 600;
+        }
+
         .contact-btn {
-            padding: 15px 30px;
-            border-radius: 12px;
-            background: linear-gradient(135deg, #00a9bd, #008a9e);
-            color: white;
+            padding: 14px 20px;
+            border-radius: 14px;
+            background: rgba(255,255,255,0.04);
+            border: 1px solid rgba(0,169,189,0.2);
+            color: #ffffff;
             text-decoration: none;
             font-weight: 600;
+            font-size: 0.92rem;
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 14px;
             transition: all 0.3s ease;
         }
-        
+
         .contact-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 25px rgba(0, 169, 189, 0.4);
+            background: rgba(0,169,189,0.12);
+            border-color: rgba(0,169,189,0.5);
+            transform: translateX(4px);
         }
-        
-        .career-modal h2 {
-            color: #00a9bd;
+
+        .contact-btn-icon {
+            width: 40px; height: 40px;
+            border-radius: 10px;
+            background: rgba(0,169,189,0.15);
+            display: flex; align-items: center; justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .contact-btn-icon img {
+            width: 24px; height: 24px;
+            object-fit: contain;
+        }
+
+        .contact-btn-text { display: flex; flex-direction: column; }
+        .contact-btn-title { font-size: 0.9rem; font-weight: 700; color: #fff; }
+        .contact-btn-sub   { font-size: 0.75rem; color: #6a7a8e; margin-top: 1px; }
+
+        .contact-btn-arrow { margin-left: auto; color: #00a9bd; font-size: 1rem; }
+
+        .back-btn {
+            background: none;
+            border: none;
+            color: #6a7a8e;
+            font-size: 0.82rem;
+            cursor: pointer;
             text-align: center;
-            margin-bottom: 10px;
+            width: 100%;
+            padding: 10px;
+            transition: color 0.2s;
+            margin-top: 4px;
         }
-        
-        .career-modal p {
-            color: #a5b4fc;
-            text-align: center;
-            margin-bottom: 20px;
-        }
+
+        .back-btn:hover { color: #00a9bd; }
         
         @media (max-width: 768px) {
             .floating-social, .floating-career {
@@ -285,30 +399,60 @@
     <!-- Career Modal -->
     <div id="careerModal" class="career-modal">
         <div class="career-modal-content">
-            <span class="career-close" onclick="closeCareerModal()">&times;</span>
-            <h2>Join Our Team</h2>
-            <p>Select your interest</p>
-            
-            <div class="career-options">
-                <div class="career-option-btn" onclick="selectCareerType('intern')">
-                    <div class="icon">🎓</div>
-                    <div class="label">Intern</div>
-                </div>
-                <div class="career-option-btn" onclick="selectCareerType('employee')">
-                    <div class="icon">💼</div>
-                    <div class="label">Employee</div>
-                </div>
+            <!-- Header -->
+            <div class="career-modal-header">
+                <span class="career-close" onclick="closeCareerModal()">&times;</span>
+                <h2>Join Our Team</h2>
+                <p>Be part of the VEOMA Labs family</p>
             </div>
-            
-            <div class="contact-options" id="contactOptions">
-                <a href="#" id="whatsappLink" class="contact-btn" target="_blank">
-                    <span>📱</span>
-                    <span>WhatsApp</span>
-                </a>
-                <a href="#" id="gmailLink" class="contact-btn" target="_blank">
-                    <span>✉️</span>
-                    <span>Gmail</span>
-                </a>
+
+            <!-- Body -->
+            <div class="career-modal-body">
+
+                <!-- Step 1: Choose Role -->
+                <div class="career-options" id="careerOptions">
+                    <div class="career-option-btn" onclick="selectCareerType('intern')">
+                        <div class="icon">
+                            <img src="images/Join-us/intern.png" alt="Intern">
+                        </div>
+                        <span class="label">Intern</span>
+                        <span class="role-desc">Students & freshers looking to grow</span>
+                    </div>
+                    <div class="career-option-btn" onclick="selectCareerType('employee')">
+                        <div class="icon">
+                            <img src="images/Join-us/employee.png" alt="Employee">
+                        </div>
+                        <span class="label">Employee</span>
+                        <span class="role-desc">Professionals ready to contribute</span>
+                    </div>
+                </div>
+
+                <!-- Step 2: Choose Contact Method -->
+                <div class="contact-options" id="contactOptions">
+                    <div class="contact-options-label">Reach out via</div>
+                    <a href="#" id="whatsappLink" class="contact-btn" target="_blank" rel="noopener">
+                        <div class="contact-btn-icon">
+                            <img src="images/Join-us/whats-app.png" alt="WhatsApp">
+                        </div>
+                        <div class="contact-btn-text">
+                            <span class="contact-btn-title">WhatsApp</span>
+                            <span class="contact-btn-sub">+91 70101 77745</span>
+                        </div>
+                        <span class="contact-btn-arrow">&#8594;</span>
+                    </a>
+                    <a href="#" id="gmailLink" class="contact-btn" target="_blank" rel="noopener" onclick="setTimeout(showEmailConfirmPopup, 1500)">
+                        <div class="contact-btn-icon">
+                            <img src="images/Join-us/gmail.png" alt="Gmail">
+                        </div>
+                        <div class="contact-btn-text">
+                            <span class="contact-btn-title">Gmail</span>
+                            <span class="contact-btn-sub">gokul20001116@gmail.com</span>
+                        </div>
+                        <span class="contact-btn-arrow">&#8594;</span>
+                    </a>
+                    <button class="back-btn" onclick="goBackToOptions()">&#8592; Choose different role</button>
+                </div>
+
             </div>
         </div>
     </div>
@@ -715,36 +859,56 @@
     </section>
 
 
+    <!-- Email Sent Confirmation Popup -->
+    <div id="emailConfirmPopup" style="display:none; position:fixed; inset:0; z-index:3000; background:rgba(0,0,0,0.75); backdrop-filter:blur(8px); align-items:center; justify-content:center;">
+        <div style="background:linear-gradient(145deg,#0a0f1c,#060b15); border:1px solid rgba(0,169,189,0.3); border-radius:24px; padding:40px 35px; max-width:400px; width:90%; text-align:center; box-shadow:0 30px 80px rgba(0,0,0,0.6); position:relative; animation:careerSlideIn 0.4s cubic-bezier(0.23,1,0.32,1);">
+            <div style="width:70px;height:70px;border-radius:50%;background:rgba(16,185,129,0.15);border:2px solid rgba(16,185,129,0.4);display:flex;align-items:center;justify-content:center;margin:0 auto 20px;">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+            <h3 style="color:#ffffff;font-size:1.3rem;font-weight:800;margin-bottom:8px;">Gmail Opened!</h3>
+            <p style="color:#7a8a9e;font-size:0.88rem;line-height:1.6;margin-bottom:8px;">Gmail has been opened in a new tab with the recipient pre-filled.</p>
+            <p style="color:#7a8a9e;font-size:0.85rem;margin-bottom:24px;">Write your message and click <strong style="color:#00a9bd;">Send</strong> in Gmail to complete your application.</p>
+            <button onclick="closeEmailConfirmPopup()" style="background:linear-gradient(135deg,#00a9bd,#008a9e);color:#fff;border:none;border-radius:12px;padding:12px 32px;font-size:0.95rem;font-weight:700;cursor:pointer;width:100%;transition:all 0.3s;">Got it!</button>
+        </div>
+    </div>
+
     <!-- Include Footer -->
     <div id="footer-placeholder"></div>
 
     <script src="js/api.js"></script>
     <script src="js/main.js"></script>
     <script>
-        // Career Modal Functions
         function openCareerModal() {
-            document.getElementById('careerModal').style.display = 'block';
-            document.querySelector('.career-options').style.display = 'flex';
+            const modal = document.getElementById('careerModal');
+            modal.classList.add('open');
+            document.getElementById('careerOptions').style.display = 'grid';
             document.getElementById('contactOptions').style.display = 'none';
+            document.body.style.overflow = 'hidden';
         }
         
         function closeCareerModal() {
-            document.getElementById('careerModal').style.display = 'none';
+            document.getElementById('careerModal').classList.remove('open');
+            document.body.style.overflow = 'auto';
+        }
+
+        function goBackToOptions() {
+            document.getElementById('careerOptions').style.display = 'grid';
+            document.getElementById('contactOptions').style.display = 'none';
         }
         
         function selectCareerType(type) {
-            document.querySelector('.career-options').style.display = 'none';
+            document.getElementById('careerOptions').style.display = 'none';
             document.getElementById('contactOptions').style.display = 'flex';
             
             const whatsappLink = document.getElementById('whatsappLink');
             const gmailLink = document.getElementById('gmailLink');
             
             if (type === 'intern') {
-                whatsappLink.href = 'https://wa.me/919876543210?text=Hi, I am interested in the Internship position';
-                gmailLink.href = 'mailto:careers@veomalabs.com?subject=Internship Application';
+                whatsappLink.href = 'https://wa.me/917010177745?text=Hi, I am interested in the Internship position at VEOMA Labs';
+                gmailLink.href = 'https://mail.google.com/mail/u/0/?view=cm&fs=1&to=gokul20001116@gmail.com&su=Internship+Application';
             } else {
-                whatsappLink.href = 'https://wa.me/919876543210?text=Hi, I am interested in the Employee position';
-                gmailLink.href = 'mailto:careers@veomalabs.com?subject=Employment Application';
+                whatsappLink.href = 'https://wa.me/917010177745?text=Hi, I am interested in the Employee position at VEOMA Labs';
+                gmailLink.href = 'https://mail.google.com/mail/u/0/?view=cm&fs=1&to=gokul20001116@gmail.com&su=Employment+Application';
             }
         }
         
@@ -772,6 +936,25 @@
             if (event.target == modal) {
                 closeCareerModal();
             }
+        }
+
+        // Email Sent Confirmation
+        function showEmailConfirmPopup() {
+            closeCareerModal();
+            document.getElementById('emailConfirmPopup').style.display = 'flex';
+        }
+        function closeEmailConfirmPopup() {
+            document.getElementById('emailConfirmPopup').style.display = 'none';
+        }
+
+        // Email Sent Confirmation Popup
+        function showEmailConfirmPopup() {
+            document.getElementById('emailConfirmPopup').style.display = 'flex';
+            closeCareerModal();
+        }
+
+        function closeEmailConfirmPopup() {
+            document.getElementById('emailConfirmPopup').style.display = 'none';
         }
     </script>
 </body>
