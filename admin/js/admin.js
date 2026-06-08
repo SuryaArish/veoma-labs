@@ -149,13 +149,19 @@ async function loadStats() {
         ${statCard('card-blue', printSVG(), s.total_printing, 'Printing Quotes')}
         ${statCard('card-purple', scanSVG(), s.total_scanning, 'Scanning Quotes')}
         ${statCard('card-green', designSVG(), s.total_designing, 'Designing Quotes')}
-        ${statCard('card-orange', docSVG(), s.total_requests, 'Total Requests')}
-        ${statCard('card-red', starSVG(), s.total_feedback, 'Feedbacks')}`;
+        ${statCard('card-orange', docSVG(), s.total_requests, 'Total Requests')}`;
 
         // Update badges
-        ['workshop','printing','scanning','designing','feedback','contact'].forEach(k => {
+        const badgeKeyMap = {
+            workshop: 'total_workshops',
+            printing: 'total_printing',
+            scanning: 'total_scanning',
+            designing: 'total_designing',
+            contact: 'total_contact'
+        };
+        Object.entries(badgeKeyMap).forEach(([k, statKey]) => {
             const el = document.getElementById(`badge-${k}`);
-            if (el) el.textContent = s[`total_${k}`] ?? '0';
+            if (el) el.textContent = s[statKey] ?? '0';
         });
 
         document.getElementById('lastUpdated').textContent = 'Updated: ' + new Date().toLocaleTimeString();
@@ -220,6 +226,9 @@ function renderPage(key) {
             <p>${cfg.subtitle}</p>
         </div>
         <div class="header-actions">
+            <button class="export-btn export-pdf-btn" onclick="exportPDF('${key}')">
+                ${pdfSVG()} Export PDF
+            </button>
             <button class="export-btn" onclick="exportCSV('${key}')">
                 ${downloadSVG()} Export CSV
             </button>
@@ -236,11 +245,11 @@ function renderPage(key) {
         </div>
         <div class="table-wrap">
             <table class="data-table">
-                <thead><tr>${cfg.cols.map(c=>`<th>${c}</th>`).join('')}</tr></thead>
+                <thead><tr>${cfg.cols.map(c=>`<th>${c}</th>`).join('')}<th class="no-print">Action</th></tr></thead>
                 <tbody>
                     ${slice.length
-                        ? slice.map((r,i) => `<tr>${cfg.row(r, start+i)}</tr>`).join('')
-                        : `<tr><td colspan="${cfg.cols.length}" class="empty-row">No records found</td></tr>`
+                        ? slice.map((r,i) => `<tr>${cfg.row(r, start+i)}<td class="no-print"><button class="delete-btn" onclick="deleteRecord('${key}', '${r.id || r._id || ''}', this)">Delete</button></td></tr>`).join('')
+                        : `<tr><td colspan="${cfg.cols.length + 1}" class="empty-row">No records found</td></tr>`
                     }
                 </tbody>
             </table>
@@ -347,7 +356,6 @@ function renderDistributionChart() {
         { label:'3D Scanning Quotes', val: state.data.scanning.length, cls:'bar-purple' },
         { label:'3D Designing Quotes',val: state.data.designing.length,cls:'bar-green' },
         { label:'Workshop Regs',      val: state.data.workshop.length, cls:'bar-cyan' },
-        { label:'Feedback',           val: state.data.feedback.length, cls:'bar-orange' },
     ];
     const max = Math.max(...items.map(i=>i.val), 1);
     document.getElementById('distributionChart').innerHTML = items.map(item => `
@@ -401,7 +409,67 @@ function exportCSV(key) {
     showToast(`Exported ${data.length} records`);
 }
 
-// ── Global search from topbar ──
+// ── Delete Record ──
+async function deleteRecord(key, id, btn) {
+    if (!id) { showToast('No ID found for this record', 'error'); return; }
+    if (!confirm('Delete this record? This cannot be undone.')) return;
+    btn.disabled = true;
+    btn.textContent = '...';
+    try {
+        const res = await fetch(`${API_BASE}/admin/${key}/${id}`, { method: 'DELETE' });
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        // Remove from state
+        state.data[key]     = state.data[key].filter(r => (r.id || r._id) != id);
+        state.filtered[key] = state.filtered[key].filter(r => (r.id || r._id) != id);
+        renderPage(key);
+        renderDistributionChart();
+        renderRecentActivity();
+        // Update badge count
+        const badge = document.getElementById(`badge-${key}`);
+        if (badge) badge.textContent = Math.max(0, parseInt(badge.textContent) - 1);
+        showToast('Record deleted successfully');
+    } catch(e) {
+        console.error('Delete error:', e);
+        btn.disabled = false;
+        btn.textContent = 'Delete';
+        showToast('Failed to delete record', 'error');
+    }
+}
+
+// ── Export PDF ──
+function exportPDF(key) {
+    const cfg   = tableConfig[key];
+    const items = state.filtered[key] || [];
+    if (!items.length) { showToast('No data to export', 'error'); return; }
+
+    const win = window.open('', '_blank');
+    const rows = items.map((r, i) => {
+        const cells = cfg.row(r, i).replace(/<span[^>]*badge[^>]*>([^<]*)<\/span>/gi, '$1')
+                         .replace(/<[^>]+>/g, '').trim();
+        const tds = cfg.row(r, i).split('</td>').slice(0, -1)
+            .map(td => `<td>${td.replace(/<[^>]+>/g,'').trim() || '—'}</td>`).join('');
+        return `<tr>${tds}</tr>`;
+    }).join('');
+
+    win.document.write(`<!DOCTYPE html><html><head><title>${cfg.title}</title><style>
+        body{font-family:Arial,sans-serif;font-size:11px;color:#111;padding:20px;}
+        h2{margin-bottom:4px;}p{color:#666;margin-bottom:12px;font-size:10px;}
+        table{width:100%;border-collapse:collapse;}
+        th{background:#0a0f1c;color:#fff;padding:8px 10px;text-align:left;font-size:10px;text-transform:uppercase;}
+        td{padding:7px 10px;border-bottom:1px solid #e5e7eb;}
+        tr:nth-child(even)td{background:#f9fafb;}
+    </style></head><body>
+        <h2>${cfg.title}</h2>
+        <p>Exported on ${new Date().toLocaleString('en-IN')} · ${items.length} records</p>
+        <table><thead><tr>${cfg.cols.map(c=>`<th>${c}</th>`).join('')}</tr></thead>
+        <tbody>${rows}</tbody></table>
+    </body></html>`);
+    win.document.close();
+    win.focus();
+    win.print();
+}
+
+
 document.getElementById('globalSearch').addEventListener('input', function() {
     const key = state.activePage;
     if (key === 'dashboard') return;
@@ -443,6 +511,7 @@ function designSVG()   { return `<svg viewBox="0 0 24 24" fill="none" stroke="cu
 function docSVG()      { return `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>`; }
 function starSVG()     { return `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>`; }
 function downloadSVG() { return `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>`; }
+function pdfSVG()      { return `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="8" y1="13" x2="16" y2="13"/><line x1="8" y1="17" x2="16" y2="17"/><line x1="10" y1="9" x2="12" y2="9"/></svg>`; }
 
 // ── Init ──
 loadAll();
